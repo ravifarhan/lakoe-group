@@ -73,7 +73,7 @@ const Sidebar = () => {
             display: "flex",
             alignItems: "center",
             gap: 2,
-            mt: 50,
+            mt: 51,
           }}
         >
           <AccountCircle />
