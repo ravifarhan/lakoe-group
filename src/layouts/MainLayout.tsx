@@ -1,5 +1,3 @@
-
-
 const MainLayout = () => {
   return (
     <div>MainLayout</div>
