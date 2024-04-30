@@ -1,15 +1,14 @@
-import { BrowserRouter,  Routes } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
 
 const App = () => {
   return (
-    <>
-    
-      <BrowserRouter>
-        <Routes>
-          
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
