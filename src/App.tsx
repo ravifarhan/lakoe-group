@@ -1,16 +1,16 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
 import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
-    <>
-
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
