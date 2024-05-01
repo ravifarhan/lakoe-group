@@ -19,21 +19,26 @@ const ListProduct = () => {
           alt="tshirt"
         />
       </Box>
-      <Box width={"80%"} marginLeft={"10px"} marginTop={"5px"}>
+      <Box width={"80%"} marginLeft={"10px"} marginTop={"6px"}>
         <Box fontWeight={"bold"} sx={{ fontSize: "15px" }}>
-          <Typography sx={{ fontSize: "12px", fontWeight: "bold" }} />
-          KAOS BASIC COTTON KENARI - BRONZE GREEN [ COTTON COMBED 30S ]
+          <Typography
+            sx={{ fontSize: "16px", fontWeight: "bold", color: "black" }}
+          >
+            KAOS BASIC COTTON KENARI - BRONZE GREEN [ COTTON COMBED 30S ]
+          </Typography>
         </Box>
-        <Box display={"flex"} marginTop={"6px"}>
-          <Box>Rp. 80.000</Box>
-          <Box marginLeft={"10px"} color={"#909090"}>
-            Stok: 20
+        <Box display={"flex"} color={"black"}>
+          <Box>
+            <Typography fontWeight={"bold"}>Rp. 80.000</Typography>
           </Box>
           <Box marginLeft={"10px"} color={"#909090"}>
-            SKU: 0219AKD192
+            <Typography>Stok: 20</Typography>
+          </Box>
+          <Box marginLeft={"10px"} color={"#909090"}>
+            <Typography>SKU: 0219AKD192</Typography>
           </Box>
         </Box>
-        <Box display={"flex"} marginTop={"10px"}>
+        <Box display={"flex"} marginTop={"3px"}>
           <Box>
             <Button
               sx={{
@@ -43,6 +48,7 @@ const ListProduct = () => {
                 border: "1px #909090 solid",
                 textTransform: "none",
                 color: "black",
+                fontWeight: "bold",
               }}
             >
               Ubah Harga
@@ -58,6 +64,7 @@ const ListProduct = () => {
                 textTransform: "none",
                 color: "black",
                 marginLeft: "10px",
+                fontWeight: "bold",
               }}
             >
               Ubah Stok
@@ -73,6 +80,7 @@ const ListProduct = () => {
                 textTransform: "none",
                 color: "black",
                 marginLeft: "10px",
+                fontWeight: "bold",
               }}
             >
               Lihat Halaman
