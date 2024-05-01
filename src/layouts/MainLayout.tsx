@@ -12,7 +12,7 @@ const MainLayout = () => {
         color: "#F8F8F8",
       }}
     >
-      <Box flex={1}>
+      <Box flex={1} >
         <Sidebar />
       </Box>
       <Box
