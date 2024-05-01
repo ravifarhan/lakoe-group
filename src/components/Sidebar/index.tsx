@@ -1,4 +1,4 @@
-import { Box, ListItem, Link } from "@mui/material";
+import { Box, ListItem } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import {
   AccountCircle,
@@ -6,12 +6,13 @@ import {
   Settings,
   ShoppingBag,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <Box position={'fixed'} display={'flex'} flexDirection={'column'} justifyContent={'space-between'} height={'100vh'}  >
       <Box display={'flex'} flexDirection={'column'} mt={3}>
-        <Link href="/dashboard" underline="none">
+        <Link to="/dashboard">
           <ListItem
             sx={{
               color: "black",
@@ -25,7 +26,7 @@ const Sidebar = () => {
             Dashboard
           </ListItem>
         </Link>
-        <Link href="#" underline="none">
+        <Link to={'product-management'}>
           <ListItem
             sx={{
               color: "black",
@@ -39,7 +40,7 @@ const Sidebar = () => {
             Produk
           </ListItem>
         </Link>
-        <Link href="#" underline="none">
+        <Link to="#">
           <ListItem
             sx={{
               color: "black",
@@ -53,7 +54,7 @@ const Sidebar = () => {
             Pesanan
           </ListItem>
         </Link>
-        <Link href="#" underline="none">
+        <Link to="#">
           <ListItem
             sx={{
               color: "black",
@@ -69,7 +70,7 @@ const Sidebar = () => {
         </Link>
       </Box>
       <Box>
-        <Link href="#" underline="none">
+        <Link to="#">
           <ListItem
             sx={{
               color: "black",
