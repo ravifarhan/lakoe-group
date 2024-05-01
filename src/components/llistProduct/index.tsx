@@ -1,16 +1,13 @@
 import { Box, Button, Checkbox, Switch, Typography } from "@mui/material";
 import React from "react";
 import "@fontsource/roboto/300.css";
+import SettingsIcon from "@mui/icons-material/Settings";
+import ModalPrice from "../ModalPrice";
+import ModalStock from "../ModalStock";
 
 const ListProduct = () => {
   return (
-    <Box
-      display={"flex"}
-      width={"720px"}
-      marginTop={"10px"}
-      border={"1px #e6e4e5 solid"}
-      borderRadius={"10px"}
-    >
+    <Box display={"flex"} border={"1px #e6e4e5 solid"} borderRadius={"10px"}>
       <Box padding={"5px"}>
         <img
           width={"80px"}
@@ -19,7 +16,7 @@ const ListProduct = () => {
           alt="tshirt"
         />
       </Box>
-      <Box width={"80%"} marginLeft={"10px"} marginTop={"6px"}>
+      <Box marginLeft={"10px"} marginTop={"6px"}>
         <Box fontWeight={"bold"} sx={{ fontSize: "15px" }}>
           <Typography
             sx={{ fontSize: "16px", fontWeight: "bold", color: "black" }}
@@ -38,75 +35,48 @@ const ListProduct = () => {
             <Typography>SKU: 0219AKD192</Typography>
           </Box>
         </Box>
-        <Box display={"flex"} marginTop={"3px"}>
+        <Box display={"flex"} marginTop={"3px"} gap={1}>
           <Box>
-            <Button
-              sx={{
-                width: "120px",
-                height: "25px",
-                borderRadius: "20px",
-                border: "1px #909090 solid",
-                textTransform: "none",
-                color: "black",
-                fontWeight: "bold",
-              }}
-            >
-              Ubah Harga
-            </Button>
+            <ModalPrice />
+          </Box>
+          <Box>
+            <ModalStock />
           </Box>
           <Box>
             <Button
               sx={{
-                width: "120px",
                 height: "25px",
                 borderRadius: "20px",
                 border: "1px #909090 solid",
                 textTransform: "none",
                 color: "black",
-                marginLeft: "10px",
-                fontWeight: "bold",
-              }}
-            >
-              Ubah Stok
-            </Button>
-          </Box>
-          <Box>
-            <Button
-              sx={{
-                width: "140px",
-                height: "25px",
-                borderRadius: "20px",
-                border: "1px #909090 solid",
-                textTransform: "none",
-                color: "black",
-                marginLeft: "10px",
                 fontWeight: "bold",
               }}
             >
               Lihat Halaman
             </Button>
           </Box>
-          {/* <Box>
-            <Button
-              sx={{
-                width: "30px",
-                height: "30px",
-                borderRadius: "100%",
-                border: "1px #e2e2e2 solid",
-                bgcolor: "red",
-                color: "black",
-              }}
-            >
-              4
-            </Button>
-          </Box> */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "23px",
+              height: "23px",
+              borderRadius: "9999px",
+              border: "1px #909090 solid",
+              color: "black",
+            }}
+          >
+            <SettingsIcon sx={{ width: "15px", height: "15px" }} />
+          </Box>
         </Box>
       </Box>
       <Box>
-        <Box>
+        <Box display={"flex"} justifyContent={"end"} width={"71px"}>
           <Checkbox />
         </Box>
-        <Box marginTop={"10px"}>
+        <Box marginTop={"10px"} display={"flex"} justifyContent={"end"}>
           <Switch defaultChecked />
         </Box>
       </Box>
