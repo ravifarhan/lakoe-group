@@ -30,7 +30,7 @@ export default function Dashboard() {
     <StyledEngineProvider injectFirst>
       <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} p={2} boxShadow={4}>
         <Box display={'flex'} gap={2} alignItems={'center'}>
-          <Typography className='title'>Hello, Sutan Arief &#x1F44B;</Typography>
+          <Typography sx={{fontWeight: 'bolder', color: 'black'}}>Hello, Sutan Arief &#x1F44B;</Typography>
         </Box>
         <Box display={'flex'} alignItems={'center'} gap={2}>
           <Box sx={{ bgcolor: '#f6f4ff', p: 1, borderRadius: '155px', width: '500px' }}>
@@ -50,7 +50,7 @@ export default function Dashboard() {
           </Box>
           <Box display={'flex'} alignItems={'center'} gap={2}>
             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" sx={{ width: 50, height: 50 }} />
-            <Typography className='title'>Sutan Arief</Typography>
+            <Typography sx={{fontWeight: 'bolder', color: 'black'}}>Sutan Arief</Typography>
           </Box>
         </Box>
       </Box>
@@ -60,10 +60,10 @@ export default function Dashboard() {
         <TotalOrders />
         <TotalSales />
       </Box>
-      <Box display={'flex'} p={4}>
-        <Box bgcolor={'#f7f5ff'} flex={2.5}>
+      <Box display={'flex'} p={2} gap={5}>
+        <Box bgcolor={'#f7f5ff'} flex={1.5}>
           <LineChart
-            height={500}
+            height={350}
             series={[
               { data: currentYear, label: 'Current Year', color: '#ac92fd' },
               { data: lastYear, label: 'Last Year', color: '#fa2833' },
@@ -71,12 +71,15 @@ export default function Dashboard() {
             xAxis={[{ scaleType: 'band', data: xLabels }]}
           />
         </Box>
-        <Box flex={1}>T
+        <Box bgcolor={'#f7f5ff'} flex={1}>
           <BarChart
-            xAxis={[{ scaleType: 'band', data: ['group A', 'group B', 'group C'] }]}
-            series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
-            width={500}
-            height={300}
+            xAxis={[{ scaleType: 'band', data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] }]}
+            yAxis={[{ max: 16000 }]}
+            series={[
+              { data: [8000, 7000, 6000, 8000, 10000, 9500, 10000], label: 'Last Week', color: '#fa2833' },
+              { data: [11000, 9000, 12000, 10000, 14000, 13000, 14000], label: 'This Week', color: '#ac92fd' }
+            ]}
+            height={350}
           />
         </Box>
       </Box>
