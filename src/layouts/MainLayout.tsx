@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 import Sidebar from "../components/Sidebar";
-import { Outlet } from "react-router-dom";
+import { ReactNode } from "react";
 import RightBar from "../components/Rightbar";
 
-const MainLayout = () => {
+export default function MainLayout({ children }: { children: ReactNode }) {
   return (
     <Box
       sx={{
         display: "flex",
         height: "100vh",
-        // color: "#F8F8F8",
+        backgroundColor: "#FFFFFF",
       }}
     >
       <Box flex={1}>
@@ -20,6 +20,9 @@ const MainLayout = () => {
         sx={{
           bgcolor: "#f8f8f8",
           overflowY: "auto",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
           borderLeft: "1.5px solid #e6e6e6",
           borderRight: "1.5px solid #e6e6e6",
           scrollbarWidth: "none",
@@ -27,13 +30,11 @@ const MainLayout = () => {
           // borderRadius: "20px",
         }}
       >
-        <Outlet />
+        {children}
       </Box>
       <Box flex={1} sx={{ padding: "20px" }}>
         <RightBar />
       </Box>
     </Box>
   );
-};
-
-export default MainLayout;
+}
