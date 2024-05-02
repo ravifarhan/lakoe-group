@@ -1,7 +1,6 @@
 import { Box, Breadcrumbs, Typography } from '@mui/material'
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import TrackingOrderCard from '../TrackingOrder/TrackingOrderCard';
 
 const DetailOrder = () => {
@@ -21,9 +20,6 @@ const DetailOrder = () => {
         </Breadcrumbs>
       </Box>
       <TrackingOrderCard />
-      <Box>
-
-      </Box>
     </Box>
   )
 }
