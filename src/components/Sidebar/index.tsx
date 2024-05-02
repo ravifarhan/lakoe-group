@@ -18,7 +18,7 @@ const Sidebar = () => {
       height={"100vh"}
     >
       <Box display={"flex"} flexDirection={"column"} mt={3}>
-        <Link to="/dashboard">
+        <Link to="dashboard">
           <ListItem
             sx={{
               color: "black",
@@ -46,7 +46,7 @@ const Sidebar = () => {
             Produk
           </ListItem>
         </Link>
-        <Link to="/orders">
+        <Link to="orders">
           <ListItem
             sx={{
               color: "black",

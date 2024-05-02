@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   Box,
   Typography,
@@ -14,7 +14,7 @@ const HargaPengelolaan = () => {
   const [stokProduct, setStokProduct] = useState("");
   const [sku, setSku] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("Product price:", productPrice);
     console.log("Minimal Pembelian:", minProduct);

@@ -6,12 +6,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import { FormEvent, useState } from "react";
 
 const Pengiriman = () => {
   const [beratProduct, setBeratProduct] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     console.log("Berat Produk:", beratProduct);
