@@ -6,11 +6,6 @@ import CircleIcon from '@mui/icons-material/Circle';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-  event.preventDefault();
-  console.info('You clicked a breadcrumb.');
-}
-
 const DetailOrder = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -34,7 +29,7 @@ const DetailOrder = () => {
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
           aria-label="breadcrumb">
-          <Link key="1" color="inherit" to="/orders" style={{textDecoration: 'none'}}>
+          <Link key="1" color="inherit" to="/orders" style={{ textDecoration: 'none' }}>
             <Typography color={'#0eadd7'} fontWeight={'bold'} fontSize={'large'}>Daftar Pesanan</Typography>
           </Link>,
           <Typography key="2" color="text.primary">
@@ -48,8 +43,8 @@ const DetailOrder = () => {
         </Box>
         <Box>
           <Box mb={3}>
-          <Typography p={1} bgcolor={'#e8c600'} sx={{ fontWeight: 'bolder', width: 'fit-content', borderRadius: '10px', color: 'black' }} mb={1}>Belum Dibayar</Typography>
-          <Typography color={'black'}>Pesanan akan dibatalkan bila pembayaran tidak dilakukan sampai <strong>10 Agustus 2023 - 00:00 WIB</strong>. Silakan tunggu sampai pembayaran terkonfirmasi sebelum mengirimkan barang.</Typography>
+            <Typography p={1} bgcolor={'#e8c600'} sx={{ fontWeight: 'bolder', width: 'fit-content', borderRadius: '10px', color: 'black' }} mb={1}>Belum Dibayar</Typography>
+            <Typography color={'black'}>Pesanan akan dibatalkan bila pembayaran tidak dilakukan sampai <strong>10 Agustus 2023 - 00:00 WIB</strong>. Silakan tunggu sampai pembayaran terkonfirmasi sebelum mengirimkan barang.</Typography>
           </Box>
           <Accordion expanded={isExpanded} onChange={toggleAccordion}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
@@ -73,6 +68,7 @@ const DetailOrder = () => {
                       primaryTypographyProps={{ fontWeight: 'bold' }}
                     />
                   </ListItem>
+                  {/* <Box sx={{ ml: '26px', borderLeft: '1px solid #D5D5D5', height: '50px', position: '' }} /> */}
                   <ListItem>
                     <ListItemIcon>
                       <CircleIcon sx={{ color: '#D5D5D5', stroke: '#F8F8F8', strokeWidth: 5 }} />
