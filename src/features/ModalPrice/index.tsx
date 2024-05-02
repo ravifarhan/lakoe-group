@@ -23,6 +23,9 @@ export default function ModalPrice() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [price, setprice] = React.useState("");
+  console.log(price);
+
   return (
     <div>
       <Button
@@ -79,6 +82,7 @@ export default function ModalPrice() {
               <Input
                 sx={{ width: "350px", height: "40px" }}
                 inputProps={{ underline: "false" }}
+                onChange={(e) => setprice(e.target.value)}
               ></Input>
             </Box>
           </Box>
@@ -95,6 +99,7 @@ export default function ModalPrice() {
                   border: "#b7b7b7 1px solid",
                   marginRight: "8px",
                 }}
+                onClick={handleClose}
               >
                 Batalkan
               </Button>

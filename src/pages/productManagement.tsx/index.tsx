@@ -3,10 +3,11 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Button, Checkbox, Tab, Typography } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import SearchProduct from "../../components/searchProduct";
-import ListProduct from "../../components/llistProduct";
+import ListProductAktif from "../../components/ListProduct/ListProductAktif";
+import ListProductNonaktif from "../../components/ListProduct/ListProductNonaktif";
 import ListSortCategory from "../../components/ListSortCategory";
 import ListSortProduct from "../../components/ListSortProduct";
-import ModalDelete from "../../components/ModalDelete";
+import ModalDelete from "../../features/ModalDelete";
 
 const ProductManagement = () => {
   const [value, setValue] = React.useState("1");
@@ -63,7 +64,6 @@ const ProductManagement = () => {
             sx={{
               borderBottom: 1,
               borderColor: "divider",
-              marginBottom: "15px",
             }}
           >
             <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -117,7 +117,6 @@ const ProductManagement = () => {
               justifyContent={"end"}
               alignItems={"center"}
               gap={1}
-              marginRight={"5px"}
             >
               {selectAll && (
                 <Box
@@ -152,11 +151,19 @@ const ProductManagement = () => {
               </Box>
             </Box>
           </Box>
-          {/* <TabPanel value="1">Semua</TabPanel>
-          <TabPanel value="2">Aktif</TabPanel>
-          <TabPanel value="3">Nonaktif</TabPanel> */}
+          <Box mt={-3}>
+            <TabPanel value="1">
+              <ListProductAktif />
+              <ListProductNonaktif />
+            </TabPanel>
+            <TabPanel value="2">
+              <ListProductAktif />
+            </TabPanel>
+            <TabPanel value="3">
+              <ListProductNonaktif />
+            </TabPanel>
+          </Box>
         </TabContext>
-        <ListProduct />
       </Box>
     </Box>
   );

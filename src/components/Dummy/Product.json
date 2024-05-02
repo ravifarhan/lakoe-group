@@ -1,0 +1,47 @@
+[
+    {
+        "id" : 1,
+        "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98v-lqdbesd60x8lf3",
+        "nameProduct" : "NBclothes - Kaos Polo Shirt Kaos Kerah LCT Kaos Kerah",
+        "Harga": "Rp. 81.000",
+        "Stok": "101",
+        "SKU": "abcdefgh01",
+        "isChecked": true
+    },
+    {
+        "id" : 2,
+        "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98r-lshxul054abq8e",
+        "nameProduct" : "Screamous Polo Shirt CROWN LINE GOLD BLACK",
+        "Harga": "Rp. 122.000",
+        "Stok": "321",
+        "SKU": "afdfsdfsd02",
+        "isChecked": true
+    },
+    {
+        "id" : 3,
+        "image": "https://down-id.img.susercontent.com/file/id-11134207-7qul7-lhh730xtyxu6ec",
+        "nameProduct" : "Onixe Inside Jaket Rugby Pria & Wanita (UNISEX)",
+        "Harga": "Rp. 342.000",
+        "Stok": "39",
+        "SKU": "adadadads03",
+        "isChecked": false
+    },{
+        "id" : 4,
+        "image": "https://down-id.img.susercontent.com/file/id-11134207-7qul8-lgyltlz6ft9642",
+        "nameProduct" : "Kemeja Vintage Katun Rayon Lengan Pendek Polos Pria Casual",
+        "Harga": "Rp. 101.000",
+        "Stok": "178",
+        "SKU": "sasafdsfg99",
+        "isChecked": true
+    },
+    {
+        "id" : 5,
+        "image": "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lsejxmdn3mv1a0",
+        "nameProduct" : "Pushop Basic Kaos Polos Cotton Combed 30 S",
+        "Harga": "Rp. 242.000",
+        "Stok": "12",
+        "SKU": "asadsdlnd78",
+        "isChecked": false
+    }
+   
+]
