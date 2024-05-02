@@ -10,8 +10,14 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <Box position={'fixed'} display={'flex'} flexDirection={'column'} justifyContent={'space-between'} height={'100vh'}  >
-      <Box display={'flex'} flexDirection={'column'} mt={3}>
+    <Box
+      position={"fixed"}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"space-between"}
+      height={"100vh"}
+    >
+      <Box display={"flex"} flexDirection={"column"} mt={3}>
         <Link to="/dashboard">
           <ListItem
             sx={{
@@ -26,7 +32,7 @@ const Sidebar = () => {
             Dashboard
           </ListItem>
         </Link>
-        <Link to={'product-management'}>
+        <Link to={"product-management"}>
           <ListItem
             sx={{
               color: "black",
@@ -77,7 +83,7 @@ const Sidebar = () => {
               display: "flex",
               alignItems: "center",
               gap: 2,
-              pb: 10
+              pb: 10,
             }}
           >
             <AccountCircle />
