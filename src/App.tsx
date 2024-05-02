@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
+import NewProduct from "./pages/formNewProduct";
 import Dashboard from "./pages/Dashboard";
 import ProductManagement from "./pages/productManagement.tsx";
 import Orders from "./pages/Orders/index.tsx";
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/product-management" element={<ProductManagement />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/detail-order" element={<DetailOrder />} />
+          <Route ptah="/add-new-product" element={<NewProduct />}
         </Route>
       </Routes>
     </BrowserRouter>
