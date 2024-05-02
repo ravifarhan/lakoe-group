@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import ProductManagement from "./pages/productManagement.tsx";
-import Setting from "./pages/Setting/index.tsx";
+import Orders from "./pages/Orders/index.tsx";
+import DetailOrder from "./components/DetailOrder/index.tsx";
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
         <Route path="/" element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/product-management" element={<ProductManagement />} />
-          <Route path="/setting" element={<Setting />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/detail-order" element={<DetailOrder />} />
         </Route>
       </Routes>
     </BrowserRouter>

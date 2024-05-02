@@ -38,7 +38,9 @@ export default function ModalDelete() {
         }}
       >
         <Button onClick={handleOpen}>
-          <DeleteForeverOutlinedIcon sx={{ width: "15px", height: "15px" }} />
+          <DeleteForeverOutlinedIcon
+            sx={{ width: "15px", height: "15px", color: "black" }}
+          />
         </Button>
       </Box>
       <Modal

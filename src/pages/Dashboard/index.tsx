@@ -102,7 +102,7 @@ export default function Dashboard() {
       <Box display={"flex"} p={4}>
         <Box bgcolor={"#f7f5ff"} flex={2.5}>
           <LineChart
-            height={500}
+            height={350}
             series={[
               { data: currentYear, label: "Current Year", color: "#ac92fd" },
               { data: lastYear, label: "Last Year", color: "#fa2833" },
