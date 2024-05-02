@@ -18,7 +18,7 @@ const Sidebar = () => {
       height={"100vh"}
     >
       <Box display={"flex"} flexDirection={"column"} mt={3}>
-        <Link to="dashboard">
+        <Link to="/">
           <ListItem
             sx={{
               color: "black",

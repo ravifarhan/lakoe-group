@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Sidebar from "../components/Sidebar";
 import RightBar from "../components/Rightbar";
+import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {
   return (
@@ -17,7 +18,7 @@ export default function MainLayout() {
       <Box
         flex={3}
         sx={{
-          bgcolor: "#f8f8f8",
+          bgcolor: "white",
           overflowY: "auto",
           "&::-webkit-scrollbar": {
             display: "none",
@@ -27,6 +28,7 @@ export default function MainLayout() {
           scrollbarWidth: "none"
         }}
       >
+        <Outlet />
       </Box>
       <Box flex={1} sx={{ padding: "20px" }}>
         <RightBar />
