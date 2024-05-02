@@ -4,6 +4,8 @@ import "@fontsource/roboto/300.css";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ModalPrice from "../ModalPrice";
 import ModalStock from "../ModalStock";
+import CardProductBihaviour from "../CardProductBihaviour";
+import { Link } from "react-router-dom";
 
 const ListProduct = () => {
   return (
@@ -19,7 +21,7 @@ const ListProduct = () => {
       <Box marginLeft={"10px"} marginTop={"6px"}>
         <Box fontWeight={"bold"} sx={{ fontSize: "15px" }}>
           <Typography
-            sx={{ fontSize: "16px", fontWeight: "bold", color: "black" }}
+            sx={{ fontSize: "15px", fontWeight: "bold", color: "black" }}
           >
             KAOS BASIC COTTON KENARI - BRONZE GREEN [ COTTON COMBED 30S ]
           </Typography>
@@ -61,23 +63,25 @@ const ListProduct = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: "23px",
-              height: "23px",
               borderRadius: "9999px",
               border: "1px #909090 solid",
               color: "black",
             }}
           >
-            <SettingsIcon sx={{ width: "15px", height: "15px" }} />
+            <Link to={""}>
+              <CardProductBihaviour />
+            </Link>
           </Box>
         </Box>
       </Box>
-      <Box>
-        <Box display={"flex"} justifyContent={"end"} width={"71px"}>
-          <Checkbox />
-        </Box>
-        <Box marginTop={"10px"} display={"flex"} justifyContent={"end"}>
-          <Switch defaultChecked />
+      <Box display={"flex"} justifyContent={"end"} width={"100px"}>
+        <Box>
+          <Box display={"flex"} justifyContent={"end"}>
+            <Checkbox />
+          </Box>
+          <Box marginTop={"10px"}>
+            <Switch defaultChecked />
+          </Box>
         </Box>
       </Box>
     </Box>

@@ -117,6 +117,7 @@ const ProductManagement = () => {
               justifyContent={"end"}
               alignItems={"center"}
               gap={1}
+              marginRight={"5px"}
             >
               {selectAll && (
                 <Box
