@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import Sidebar from "../components/Sidebar";
-import { ReactNode } from "react";
 import RightBar from "../components/Rightbar";
+import { Outlet } from "react-router-dom";
 
-export default function MainLayout({ children }: { children: ReactNode }) {
+export default function MainLayout() {
   return (
     <Box
       sx={{
@@ -18,19 +18,17 @@ export default function MainLayout({ children }: { children: ReactNode }) {
       <Box
         flex={3}
         sx={{
-          bgcolor: "#f8f8f8",
+          bgcolor: "white",
           overflowY: "auto",
           "&::-webkit-scrollbar": {
             display: "none",
           },
           borderLeft: "1.5px solid #e6e6e6",
           borderRight: "1.5px solid #e6e6e6",
-          scrollbarWidth: "none",
-          // border: "1px solid black",
-          // borderRadius: "20px",
+          scrollbarWidth: "none"
         }}
       >
-        {children}
+        <Outlet />
       </Box>
       <Box flex={1} sx={{ padding: "20px" }}>
         <RightBar />
