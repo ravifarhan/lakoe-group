@@ -9,7 +9,7 @@ const MainLayout = () => {
       sx={{
         display: "flex",
         height: "100vh",
-        color: "#F8F8F8",
+        // color: "#F8F8F8",
       }}
     >
       <Box flex={1}>
@@ -18,10 +18,13 @@ const MainLayout = () => {
       <Box
         flex={3}
         sx={{
-          height: "100vh",
+          bgcolor: "#f8f8f8",
           overflowY: "auto",
-          border: "1px solid black",
-          borderRadius: "20px",
+          borderLeft: "1.5px solid #e6e6e6",
+          borderRight: "1.5px solid #e6e6e6",
+          scrollbarWidth: "none",
+          // border: "1px solid black",
+          // borderRadius: "20px",
         }}
       >
         <Outlet />

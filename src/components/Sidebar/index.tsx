@@ -60,7 +60,7 @@ const Sidebar = () => {
             Pesanan
           </ListItem>
         </Link>
-        <Link to="#">
+        <Link to="setting">
           <ListItem
             sx={{
               color: "black",
