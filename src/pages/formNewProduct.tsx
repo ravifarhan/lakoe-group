@@ -2,37 +2,38 @@ import { useState } from "react";
 import Informasi from "../features/FormNewProduct/component/informasi";
 import { Box, Button, Container, FormLabel, Typography } from "@mui/material";
 import { AddCircleOutline as AddCircleOutlineIcon } from "@mui/icons-material";
+// import NestedList from "../features/FormNewProduct/component/NestedList";
 
 import DetailProduct from "../features/FormNewProduct/component/detailProduct";
 import HargaPengelolaan from "../features/FormNewProduct/component/hargaPengelolaan";
 import Pengiriman from "../features/FormNewProduct/component/pengiriman";
+import { SubmitErrorHandler, SubmitHandler } from "react-hook-form";
+import useProductValidation, {
+  ITestForm,
+} from "../lib/hook/validation/useProductValidation";
 
 const FormNewProduct = () => {
-  const [isValid, setIsValid] = useState(false);
-  const [isDescriptionValid, setIsDescriptionValid] = useState(false);
-  const [isPhotoValid, setIsPhotoValid] = useState(false);
+  const { reset, handleSubmit } = useProductValidation();
 
-  const handleSave = () => {
-    if (!isValid) {
-      alert("Form belum valid. Silakan lengkapi data dengan benar.");
-      return;
-    }
+  const submitHandler: SubmitHandler<ITestForm> = (data) => {
+    alert(JSON.stringify(data, null, 2));
+    reset();
+  };
 
-    // Simpan data jika form valid
-    // ...
+  const handleSubmitError: SubmitErrorHandler<ITestForm> = (data) => {
+    alert("error" + JSON.stringify(data, null, 2));
   };
 
   return (
-    <Container>
+    <Container
+      sx={{
+        bgcolor: "#f8f8f8",
+      }}
+    >
       <Informasi />
-      <DetailProduct
-        isDescriptionValid={isDescriptionValid}
-        setIsDescriptionValid={setIsDescriptionValid}
-        isPhotoValid={isPhotoValid}
-        setIsPhotoValid={setIsPhotoValid}
-        setIsValid={setIsValid}
-      />
-      <Box sx={{ mt: 2, p: 2 }} borderRadius={"8px"} bgcolor={"#CECECE"}>
+      <DetailProduct />
+
+      <Box sx={{ mt: 2, p: 2 }} borderRadius={"8px"} bgcolor={"#ffffff"}>
         <Typography variant="h6" color={"black"} gutterBottom>
           Varian Produk
         </Typography>
@@ -72,7 +73,7 @@ const FormNewProduct = () => {
         mt={"20px"}
         p={2}
         borderRadius={"10px"}
-        bgcolor={"#CECECE"}
+        bgcolor={"#ffffff"}
       >
         <Button
           variant="outlined"
@@ -88,7 +89,7 @@ const FormNewProduct = () => {
         <Button
           variant="contained"
           style={{ marginLeft: "15px", borderRadius: "20px" }}
-          onClick={handleSave}
+          onClick={handleSubmit(submitHandler, handleSubmitError)}
         >
           Simpan
         </Button>
