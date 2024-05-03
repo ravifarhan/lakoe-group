@@ -1,12 +1,16 @@
 import { Box, Breadcrumbs, Typography } from '@mui/material'
 import { Link } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import TrackingOrderCard from '../TrackingOrder/TrackingOrderCard';
+import TrackingOrderCard from './features/TrackingOrder/TrackingOrderCard';
+import DetailInvoiceCard from './features/DetailInvoice/DetailInvoiceCard';
+import DetailOrderCard from './features/DetailOrderCard/DetailOrderCard';
+import DetailDelivery from './features/DetailDelivery/DetailDelivery';
+import DetailPayment from './features/DetailPayment/DetailPayment';
 
 const DetailOrder = () => {
 
   return (
-    <Box bgcolor={'#f8f8f8'} height={'100vh'} p={4}>
+    <Box bgcolor={'#f8f8f8'} p={4} pb={10}>
       <Box mb={'30px'}>
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
@@ -20,6 +24,10 @@ const DetailOrder = () => {
         </Breadcrumbs>
       </Box>
       <TrackingOrderCard />
+      <DetailInvoiceCard />
+      <DetailOrderCard />
+      <DetailDelivery />
+      <DetailPayment />
     </Box>
   )
 }

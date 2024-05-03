@@ -4,7 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import NewProduct from "./pages/formNewProduct";
 import ProductManagement from "./pages/ProductManagement/index.tsx";
 import Orders from "./pages/Orders/index.tsx";
-import DetailOrder from "./components/DetailOrder/index.tsx";
+import DetailOrder from "./pages/DetailOrder/index.tsx";
 import Setting from "./pages/Setting/index.tsx";
 
 const App = () => {
