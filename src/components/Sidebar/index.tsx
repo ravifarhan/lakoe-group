@@ -19,7 +19,7 @@ const Sidebar = () => {
       <Box display={"flex"} flexDirection={"column"} mt={3} padding={4} gap={3}>
         <Box sx={{ display: "flex" }}>
           <Link
-            to="/dashboard"
+            to="/"
             style={{
               textDecoration: "none",
               display: "flex",
