@@ -29,6 +29,7 @@ const ProductManagement = () => {
         alignItems={"center"}
         justifyContent={"space-between"}
         padding={"15px"}
+        sx={{ overflow: "none" }}
       >
         <Box>
           <Typography
