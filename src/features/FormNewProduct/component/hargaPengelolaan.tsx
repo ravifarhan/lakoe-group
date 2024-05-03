@@ -7,24 +7,28 @@ import {
   InputAdornment,
   FormLabel,
 } from "@mui/material";
+import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
+import useProductValidation, {
+  ITestForm,
+} from "../../../lib/hook/validation/useProductValidation";
 
 const HargaPengelolaan = () => {
-  const [productPrice, setProductPrice] = useState("");
-  const [minProduct, setMinProduct] = useState("");
-  const [stokProduct, setStokProduct] = useState("");
-  const [sku, setSku] = useState("");
+  const { reset, control, handleSubmit } = useProductValidation();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Product price:", productPrice);
-    console.log("Minimal Pembelian:", minProduct);
-    console.log("Minimal Pembelian:", stokProduct);
-    console.log("Minimal Pembelian:", sku);
-    setStokProduct("");
-    setSku("");
-    setProductPrice("");
-    setMinProduct("");
+  const submitHandler: SubmitHandler<ITestForm> = (data) => {
+    alert(JSON.stringify(data, null, 2));
+    reset();
   };
+
+  const handleSubmitError: SubmitErrorHandler<ITestForm> = (data) => {
+    alert("error" + JSON.stringify(data, null, 2));
+  };
+
+  // State untuk menyimpan minimal pembelian
+  const [minProduct, setMinProduct] = useState("");
+
+  // State untuk menyimpan SKU
+  const [sku, setSku] = useState("");
 
   return (
     <>
@@ -32,32 +36,42 @@ const HargaPengelolaan = () => {
         sx={{ mt: 2, p: 2 }}
         borderRadius={"8px"}
         flexDirection={"row"}
-        bgcolor={"#CECECE"}
+        bgcolor={"#ffffff"}
       >
         <Typography variant="h6" color={"black"} gutterBottom>
           Harga
         </Typography>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(submitHandler, handleSubmitError)}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <FormLabel component="legend">
                 Harga <span style={{ color: "red" }}>*</span>
               </FormLabel>
-              <TextField
-                fullWidth
-                variant="outlined"
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: "5px",
-                }}
-                value={productPrice}
-                onChange={(e) => setProductPrice(e.target.value)}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">Rp</InputAdornment>
-                  ),
-                }}
+
+              <Controller
+                control={control}
+                name="harga"
+                render={({ field, fieldState }) => (
+                  <TextField
+                    fullWidth
+                    type="number"
+                    placeholder="Nama Produk"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment
+                          position="start"
+                          sx={{ color: "black" }}
+                        >
+                          Rp{" "}
+                        </InputAdornment>
+                      ),
+                    }}
+                    {...field}
+                    error={!!fieldState.error?.message}
+                    helperText={fieldState.error?.message}
+                  />
+                )}
               />
             </Grid>
             <Grid item xs={12}>
@@ -66,6 +80,7 @@ const HargaPengelolaan = () => {
               </FormLabel>
               <TextField
                 fullWidth
+                type="number"
                 variant="outlined"
                 style={{
                   backgroundColor: "white",
@@ -88,26 +103,30 @@ const HargaPengelolaan = () => {
         </form>
       </Box>
 
-      <Box sx={{ mt: 2, p: 2 }} borderRadius={"8px"} bgcolor={"#CECECE"}>
+      <Box sx={{ mt: 2, p: 2 }} borderRadius={"8px"} bgcolor={"#ffffff"}>
         <Typography variant="h6" color="black" gutterBottom>
           Pengelolaan Produk
         </Typography>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(submitHandler, handleSubmitError)}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <FormLabel component="legend">
                 Stok Produk<span style={{ color: "red" }}>*</span>
               </FormLabel>
-              <TextField
-                fullWidth
-                variant="outlined"
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: "5px",
-                }}
-                value={stokProduct}
-                onChange={(e) => setStokProduct(e.target.value)}
+              <Controller
+                control={control}
+                name="stok_produk"
+                render={({ field, fieldState }) => (
+                  <TextField
+                    fullWidth
+                    type="number"
+                    placeholder="Masukan Nama Produk"
+                    {...field}
+                    error={!!fieldState.error?.message}
+                    helperText={fieldState.error?.message}
+                  />
+                )}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -116,6 +135,7 @@ const HargaPengelolaan = () => {
               </FormLabel>
               <TextField
                 fullWidth
+                type="number"
                 variant="outlined"
                 style={{
                   backgroundColor: "white",
