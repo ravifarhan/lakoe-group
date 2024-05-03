@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import ProductManagement from "./pages/productManagement.tsx";
 import Orders from "./pages/Orders/index.tsx";
 import DetailOrder from "./components/DetailOrder/index.tsx";
+import Setting from "./pages/Setting/index.tsx";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/product-management" element={<ProductManagement />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/detail-order" element={<DetailOrder />} />
+          <Route path="/setting" element={<Setting />} />
         </Route>
       </Routes>
     </BrowserRouter>
