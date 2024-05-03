@@ -18,10 +18,16 @@ export default function MainLayout({ children }: { children: ReactNode }) {
       <Box
         flex={3}
         sx={{
+          bgcolor: "#f8f8f8",
           overflowY: "auto",
           "&::-webkit-scrollbar": {
             display: "none",
           },
+          borderLeft: "1.5px solid #e6e6e6",
+          borderRight: "1.5px solid #e6e6e6",
+          scrollbarWidth: "none",
+          // border: "1px solid black",
+          // borderRadius: "20px",
         }}
       >
         {children}
