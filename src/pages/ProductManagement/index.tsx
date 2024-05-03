@@ -3,10 +3,12 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Button, Checkbox, Tab, Typography } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import SearchProduct from "../../components/searchProduct";
-import ListProduct from "../../components/llistProduct";
+import ListProductAktif from "../../components/ListProduct/ListProductAktif";
+import ListProductNonaktif from "../../components/ListProduct/ListProductNonaktif";
 import ListSortCategory from "../../components/ListSortCategory";
 import ListSortProduct from "../../components/ListSortProduct";
-import ModalDelete from "../../components/ModalDelete";
+import ModalDelete from "../../features/ModalDelete";
+import { Link } from "react-router-dom";
 
 const ProductManagement = () => {
   const [value, setValue] = React.useState("1");
@@ -28,6 +30,7 @@ const ProductManagement = () => {
         alignItems={"center"}
         justifyContent={"space-between"}
         padding={"15px"}
+        sx={{ overflow: "none" }}
       >
         <Box>
           <Typography
@@ -39,23 +42,24 @@ const ProductManagement = () => {
             Daftar Produk
           </Typography>
         </Box>
-        <Box
-          borderRadius={"20px"}
-          bgcolor={"#0086b4"}
-          sx={{
-            marginLeft: "47%",
-          }}
-        >
-          <Button
+        <Link to={"/add-new-product"}>
+          <Box
             sx={{
-              color: "white",
-              textTransform: "none",
+              borderRadius: "20px",
+              bgcolor: "#0086b4",
             }}
           >
-            <ControlPointIcon />
-            Tambah Produk
-          </Button>
-        </Box>
+            <Button
+              sx={{
+                color: "white",
+                textTransform: "none",
+              }}
+            >
+              <ControlPointIcon />
+              Tambah Produk
+            </Button>
+          </Box>
+        </Link>
       </Box>
       <Box>
         <TabContext value={value}>
@@ -63,7 +67,6 @@ const ProductManagement = () => {
             sx={{
               borderBottom: 1,
               borderColor: "divider",
-              marginBottom: "15px",
             }}
           >
             <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -117,7 +120,6 @@ const ProductManagement = () => {
               justifyContent={"end"}
               alignItems={"center"}
               gap={1}
-              marginRight={"5px"}
             >
               {selectAll && (
                 <Box
@@ -152,11 +154,19 @@ const ProductManagement = () => {
               </Box>
             </Box>
           </Box>
-          {/* <TabPanel value="1">Semua</TabPanel>
-          <TabPanel value="2">Aktif</TabPanel>
-          <TabPanel value="3">Nonaktif</TabPanel> */}
+          <Box mt={-3}>
+            <TabPanel value="1">
+              <ListProductAktif />
+              <ListProductNonaktif />
+            </TabPanel>
+            <TabPanel value="2">
+              <ListProductAktif />
+            </TabPanel>
+            <TabPanel value="3">
+              <ListProductNonaktif />
+            </TabPanel>
+          </Box>
         </TabContext>
-        <ListProduct />
       </Box>
     </Box>
   );
