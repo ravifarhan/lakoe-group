@@ -57,7 +57,7 @@ export default function ListSortCategory() {
           MenuProps={MenuProps}
           sx={{
             height: "40px",
-            width: "200px",
+            width: "195px",
           }}
         >
           {names.map((name) => (

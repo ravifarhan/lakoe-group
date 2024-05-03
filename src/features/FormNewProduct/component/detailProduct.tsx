@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Box, FormLabel, Grid, Typography } from "@mui/material";
+import { Box, FormLabel, Grid, TextField, Typography } from "@mui/material";
+import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
+import useProductValidation, {
+  ITestForm,
+} from "../../../lib/hook/validation/useProductValidation";
 
-interface DetailProductProps {
-  setIsDescriptionValid: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsPhotoValid: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const DetailProduct = () => {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const { reset, control, handleSubmit } = useProductValidation();
 
-const DetailProduct: React.FC<DetailProductProps> = ({
-  setIsDescriptionValid,
-  setIsPhotoValid,
-}) => {
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const [description, setDescription] = useState("");
-  const [descriptionError, setDescriptionError] = useState<string | null>(null);
+  const submitHandler: SubmitHandler<ITestForm> = (data) => {
+    alert(JSON.stringify(data, null, 2));
+    reset();
+  };
+
+  const handleSubmitError: SubmitErrorHandler<ITestForm> = (data) => {
+    alert("error" + JSON.stringify(data, null, 2));
+  };
 
   const handleFileChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -23,62 +27,40 @@ const DetailProduct: React.FC<DetailProductProps> = ({
       const newSelectedFiles = [...selectedFiles];
       newSelectedFiles[index] = files[0];
       setSelectedFiles(newSelectedFiles);
-
-      // Validasi foto produk
-      const validFiles = newSelectedFiles.filter((file) => file);
-      setIsPhotoValid(validFiles.length > 0);
     }
   };
 
-  const handleDescriptionChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setDescription(event.target.value);
-
-    // Validasi deskripsi produk
-    setIsDescriptionValid(event.target.value.trim() !== "");
-    setDescriptionError(
-      event.target.value.trim() === "" ? "Deskripsi tidak boleh kosong" : null
-    );
-  };
-
   return (
-    <Box sx={{ mt: 2, p: 2 }} borderRadius={"8px"} bgcolor={"#CECECE"}>
+    <Box sx={{ mt: 2, p: 2 }} borderRadius={"12px"} bgcolor={"#ffffff"}>
       <Typography variant="h6" color={"black"} gutterBottom>
         Detail Produk
       </Typography>
 
-      <form>
+      <form onSubmit={handleSubmit(submitHandler, handleSubmitError)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FormLabel component="legend">
               Deskripsi<span style={{ color: "red" }}>*</span>
             </FormLabel>
-            <textarea
-              aria-label="empty textarea"
-              placeholder="Masukan deskripsi lengkap produk kamu"
-              style={{
-                width: "96%",
-                minHeight: 100,
-                padding: "8px 12px",
-                fontSize: 16,
-                border: "1px solid #ccc",
-                borderRadius: 4,
-              }}
-              value={description}
-              onChange={handleDescriptionChange}
-              name="description"
-              id="description"
+            <Controller
+              control={control}
+              name="deskripsi"
+              render={({ field, fieldState }) => (
+                <TextField
+                  fullWidth
+                  placeholder="Masukan deskripsi lengkap produk kamu"
+                  {...field}
+                  error={!!fieldState.error?.message}
+                  helperText={fieldState.error?.message}
+                />
+              )}
             />
-            {descriptionError && (
-              <div style={{ color: "red" }}>{descriptionError}</div>
-            )}
           </Grid>
           <Grid item xs={12}>
             <FormLabel component="legend">
               Foto Produk<span style={{ color: "red" }}>*</span>
             </FormLabel>
-            <Grid container spacing={3} sx={{ flexDirection: "row" }}>
+            <Grid container spacing={1} sx={{ flexDirection: "row" }}>
               {[...Array(5)].map((_, index) => (
                 <Grid item key={index}>
                   <input
@@ -90,20 +72,21 @@ const DetailProduct: React.FC<DetailProductProps> = ({
                     onChange={(event) => handleFileChange(event, index)}
                   />
                   <label htmlFor={`contained-button-file-${index}`}>
-                    <img
-                      src={
-                        selectedFiles[index]
-                          ? URL.createObjectURL(selectedFiles[index])
-                          : "./src/assets/img.jpeg"
-                      }
-                      alt={`Upload Image ${index + 1}`}
-                      style={{
-                        cursor: "pointer",
-                        width: "100px",
-                        height: "auto",
-                        borderRadius: "10px",
-                      }}
-                    />
+                    <div>
+                      <img
+                        src={
+                          selectedFiles[index]
+                            ? URL.createObjectURL(selectedFiles[index])
+                            : "./src/assets/img.jpeg"
+                        }
+                        alt={`Upload Image ${index + 1}`}
+                        style={{
+                          cursor: "pointer",
+                          width: "135px",
+                          height: "auto",
+                        }}
+                      />
+                    </div>
                   </label>
                 </Grid>
               ))}

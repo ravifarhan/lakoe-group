@@ -18,7 +18,7 @@ export default function MainLayout() {
       <Box
         flex={3}
         sx={{
-          bgcolor: "white",
+          bgcolor: "#f8f8f8",
           overflowY: "auto",
           "&::-webkit-scrollbar": {
             display: "none",
