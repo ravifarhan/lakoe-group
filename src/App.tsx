@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard/index.tsx";
 import MainLayout from "./layouts/MainLayout";
-import Dashboard from "./pages/Dashboard";
-import ProductManagement from "./pages/productManagement.tsx";
+import NewProduct from "./pages/formNewProduct";
+import ProductManagement from "./pages/ProductManagement/index.tsx";
 import Orders from "./pages/Orders/index.tsx";
 import DetailOrder from "./components/DetailOrder/index.tsx";
 import Setting from "./pages/Setting/index.tsx";
@@ -11,11 +12,13 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="/product-management" element={<ProductManagement />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/setting" element={<Setting />} />
           <Route path="/detail-order" element={<DetailOrder />} />
           <Route path="/setting" element={<Setting />} />
+          <Route path="/add-new-product" element={<NewProduct />} />
         </Route>
       </Routes>
     </BrowserRouter>
