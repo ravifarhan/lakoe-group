@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 import Sidebar from "../components/Sidebar";
-import { Outlet } from "react-router-dom";
 import RightBar from "../components/Rightbar";
+import { Outlet } from "react-router-dom";
 
-const MainLayout = () => {
+export default function MainLayout() {
   return (
     <Box
       sx={{
         display: "flex",
         height: "100vh",
-        color: "#F8F8F8",
+        backgroundColor: "#FFFFFF",
       }}
     >
       <Box flex={1}>
@@ -18,10 +18,14 @@ const MainLayout = () => {
       <Box
         flex={3}
         sx={{
-          height: "100vh",
+          bgcolor: "#f8f8f8",
           overflowY: "auto",
-          border: "1px solid black",
-          borderRadius: "20px",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          borderLeft: "1.5px solid #e6e6e6",
+          borderRight: "1.5px solid #e6e6e6",
+          scrollbarWidth: "none"
         }}
       >
         <Outlet />
@@ -31,6 +35,4 @@ const MainLayout = () => {
       </Box>
     </Box>
   );
-};
-
-export default MainLayout;
+}

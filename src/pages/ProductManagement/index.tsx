@@ -8,6 +8,7 @@ import ListProductNonaktif from "../../components/ListProduct/ListProductNonakti
 import ListSortCategory from "../../components/ListSortCategory";
 import ListSortProduct from "../../components/ListSortProduct";
 import ModalDelete from "../../features/ModalDelete";
+import { Link } from "react-router-dom";
 
 const ProductManagement = () => {
   const [value, setValue] = React.useState("1");
@@ -41,23 +42,24 @@ const ProductManagement = () => {
             Daftar Produk
           </Typography>
         </Box>
-        <Box
-          borderRadius={"20px"}
-          bgcolor={"#0086b4"}
-          sx={{
-            marginLeft: "47%",
-          }}
-        >
-          <Button
+        <Link to={"/add-new-product"}>
+          <Box
             sx={{
-              color: "white",
-              textTransform: "none",
+              borderRadius: "20px",
+              bgcolor: "#0086b4",
             }}
           >
-            <ControlPointIcon />
-            Tambah Produk
-          </Button>
-        </Box>
+            <Button
+              sx={{
+                color: "white",
+                textTransform: "none",
+              }}
+            >
+              <ControlPointIcon />
+              Tambah Produk
+            </Button>
+          </Box>
+        </Link>
       </Box>
       <Box>
         <TabContext value={value}>

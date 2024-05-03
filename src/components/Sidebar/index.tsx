@@ -1,95 +1,105 @@
-import { Box, ListItem } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
+import { Box, Typography } from "@mui/material";
 import {
-  AccountCircle,
-  Inventory,
+  AccountCircleOutlined,
+  HomeOutlined,
+  Inventory2Outlined,
   Settings,
-  ShoppingBag,
+  ShoppingBagOutlined,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <Box
-      position={"fixed"}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"space-between"}
       height={"100vh"}
     >
-      <Box display={"flex"} flexDirection={"column"} mt={3}>
-        <Link to="/dashboard">
-          <ListItem
-            sx={{
-              color: "black",
+      <Box display={"flex"} flexDirection={"column"} mt={3} padding={4} gap={3}>
+        <Box sx={{ display: "flex" }}>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: 2,
-              mb: 1,
+              gap: "10px",
             }}
           >
-            <HomeIcon style={{ fontSize: 25 }} />
-            Dashboard
-          </ListItem>
-        </Link>
-        <Link to={"product-management"}>
-          <ListItem
-            sx={{
-              color: "black",
+            <HomeOutlined sx={{ color: "black" }} />
+            <Typography variant="body1" color={"black"}>
+              Dashboard
+            </Typography>
+          </Link>
+        </Box>
+        <Box sx={{ display: "flex" }}>
+          <Link
+            to="/product-management"
+            style={{
+              textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: 2,
-              mb: 1,
+              gap: "10px",
             }}
           >
-            <Inventory style={{ fontSize: 25 }} />
-            Produk
-          </ListItem>
-        </Link>
-        <Link to="/orders">
-          <ListItem
-            sx={{
-              color: "black",
+            <Inventory2Outlined sx={{ color: "black" }} />
+            <Typography variant="body1" color={"black"}>
+              Produk
+            </Typography>
+          </Link>
+        </Box>
+        <Box sx={{ display: "flex" }}>
+          <Link
+            to="/orders"
+            style={{
+              textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: 2,
-              mb: 1,
+              gap: "10px",
             }}
           >
-            <ShoppingBag style={{ fontSize: 25 }} />
-            Pesanan
-          </ListItem>
-        </Link>
-        <Link to="#">
-          <ListItem
-            sx={{
-              color: "black",
+            <ShoppingBagOutlined sx={{ color: "black" }} />
+            <Typography variant="body1" color={"black"}>
+              Pesanan
+            </Typography>
+          </Link>
+        </Box>
+        <Box sx={{ display: "flex" }}>
+          <Link
+            to="/setting"
+            style={{
+              textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: 2,
-              mb: 1,
+              gap: "10px",
             }}
           >
-            <Settings style={{ fontSize: 25 }} />
-            Pengaturan
-          </ListItem>
-        </Link>
+            <Settings sx={{ color: "black" }} />
+            <Typography variant="body1" color={"black"}>
+              Pengaturan
+            </Typography>
+          </Link>
+        </Box>
       </Box>
-      <Box>
-        <Link to="#">
-          <ListItem
-            sx={{
-              color: "black",
+
+      <Box display={"flex"} flexDirection={"column"} padding={4} gap={3}>
+        <Box sx={{ display: "flex" }}>
+          <Link
+            to="#"
+            style={{
+              textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: 2,
-              pb: 10,
+              gap: "10px",
             }}
           >
-            <AccountCircle />
-            Profile
-          </ListItem>
-        </Link>
+            <AccountCircleOutlined sx={{ color: "black" }} />
+            <Typography variant="body1" color={"black"}>
+              Profile
+            </Typography>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
