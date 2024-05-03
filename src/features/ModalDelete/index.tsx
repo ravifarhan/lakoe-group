@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Input, TextField } from "@mui/material";
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 
 const style = {
   position: "absolute" as "absolute",
@@ -18,27 +18,31 @@ const style = {
   p: 4,
 };
 
-export default function ModalStock() {
+export default function ModalDelete() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button
-        onClick={handleOpen}
+      <Box
         sx={{
-          width: "120px",
-          height: "25px",
-          borderRadius: "20px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "23px",
+          height: "23px",
+          borderRadius: "9999px",
           border: "1px #909090 solid",
-          textTransform: "none",
           color: "black",
-          fontWeight: "bold",
         }}
       >
-        Ubah Harga
-      </Button>
+        <Button onClick={handleOpen}>
+          <DeleteForeverOutlinedIcon
+            sx={{ width: "15px", height: "15px", color: "black" }}
+          />
+        </Button>
+      </Box>
       <Modal
         open={open}
         onClose={handleClose}
@@ -48,7 +52,7 @@ export default function ModalStock() {
         <Box sx={style}>
           <Box>
             <Typography variant="h6" fontWeight={"bold"}>
-              Ubah Stok
+              Hapus Stok
             </Typography>
           </Box>
           <Box marginTop={"10px"}>
@@ -56,21 +60,6 @@ export default function ModalStock() {
               Ubah harga untuk produk KAOS BASIC POLOS - BUBLE GUM COMBED
               BIOWASH 30s Kaos Polos - S
             </Typography>
-          </Box>
-          <Box
-            display={"flex"}
-            width={"400px"}
-            height={"40px"}
-            border={"#e8e8e8 1px solid"}
-            borderRadius={"10px"}
-            marginTop={"10px"}
-          >
-            <Box width={"350px"}>
-              <Input
-                sx={{ width: "400px", height: "40px" }}
-                inputProps={{ underline: "false" }}
-              ></Input>
-            </Box>
           </Box>
           <Box display={"flex"} justifyContent={"end"} marginTop={"10px"}>
             <Box>
