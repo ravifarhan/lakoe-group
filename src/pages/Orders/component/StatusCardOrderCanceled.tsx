@@ -7,7 +7,7 @@ const StatusCardOrderCanceled = () => {
       <Box mb={'20px'}>
         <Box display={'flex'} justifyContent={'space-between'} p={2} border={"1px #e6e4e5 solid"} borderRadius={"10px"}>
           <Box>
-            <Typography p={1} bgcolor={'#ea3829'} sx={{ fontWeight: 'bolder', width: 'fit-content', borderRadius: '10px' }} mb={1}>Dibatalkan</Typography>
+            <Typography p={1} bgcolor={'#ea3829'} sx={{ fontWeight: 'bolder', width: 'fit-content', borderRadius: '10px', color: 'white' }} mb={1}>Dibatalkan</Typography>
             <Typography color={'#909090'}>INV/20230809/MPL/00000239</Typography>
           </Box>
           <Box>

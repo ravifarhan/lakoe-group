@@ -28,7 +28,7 @@ const Orders = () => {
       <Box sx={{ width: '100%', typography: 'body1' }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example" variant='fullWidth' >
+            <TabList onChange={handleChange} aria-label="lab API tabs example" variant="scrollable" scrollButtons="auto" >
               <Tab label="Semua" value="1" sx={{ color: 'black', fontWeight: 'bolder' }} />
               <Tab label="Belum Dibayar" value="2" sx={{ color: 'black', fontWeight: 'bolder' }} />
               <Tab label="Pesanan Baru" value="3" sx={{ color: 'black', fontWeight: 'bolder' }} />
