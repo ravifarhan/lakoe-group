@@ -1,7 +1,4 @@
-import {
-  FmdGoodOutlined,
-  LocationOffOutlined,
-} from "@mui/icons-material";
+import { FmdGoodOutlined, LocationOffOutlined } from "@mui/icons-material";
 import { Box, Typography, Button } from "@mui/material";
 import { useState } from "react";
 import ModalDialog from "../ModalPanel";
@@ -23,12 +20,14 @@ const PanelLocation = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Typography variant="body1" fontWeight="bold">
-          Lokasi Toko
+        <Box display={"flex"} flexDirection={"column"}>
+          <Typography variant="body1" fontWeight="bold">
+            Lokasi Toko
+          </Typography>
           <Typography variant="body2" sx={{ color: "gray" }}>
             Alamat ini akan digunakan sebagai alamat pengirimanmu
           </Typography>
-        </Typography>
+        </Box>
         <ModalDialog callback={toggleModal} show={showModal}>
           <FormAddLocation callback={toggleModal} />
         </ModalDialog>
