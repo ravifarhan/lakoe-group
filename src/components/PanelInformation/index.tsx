@@ -1,4 +1,8 @@
-import { AddPhotoAlternateOutlined } from "@mui/icons-material";
+import {
+  AddPhotoAlternateOutlined,
+  DeleteOutline,
+  EditOutlined,
+} from "@mui/icons-material";
 import {
   Box,
   Typography,
@@ -6,9 +10,38 @@ import {
   FormLabel,
   TextField,
   Button,
+  IconButton,
 } from "@mui/material";
+import { ChangeEvent, useState } from "react";
 
-const PanelInformation = () => {
+interface PanelInformationProps {
+  onSaveInformation: () => void;
+}
+
+const PanelInformation: React.FC<PanelInformationProps> = ({
+  onSaveInformation,
+}) => {
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleEditClick = () => {
+    document.getElementById("image")?.click();
+  };
+
+  const handleDeleteClick = () => {
+    setImagePreview(null);
+  };
+
   return (
     <>
       <Box display={"flex"} flexDirection={"column"} gap={2}>
@@ -54,6 +87,7 @@ const PanelInformation = () => {
         </Grid>
         <Box display={"flex"} justifyContent={"end"}>
           <Button
+            onClick={onSaveInformation}
             variant="contained"
             size="small"
             sx={{
@@ -88,16 +122,63 @@ const PanelInformation = () => {
             justifyContent={"center"}
             alignItems={"center"}
             flexDirection={"column"}
+            position="relative"
           >
             <label htmlFor="image">
-              <AddPhotoAlternateOutlined
-                fontSize="large"
-                sx={{ color: "gray" }}
-                cursor={"pointer"}
-              />
+              {imagePreview ? (
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "cover",
+                    borderRadius: "5px",
+                  }}
+                />
+              ) : (
+                <AddPhotoAlternateOutlined
+                  fontSize="large"
+                  sx={{ color: "#909090" }}
+                  cursor={"pointer"}
+                />
+              )}
             </label>
-            <input id="image" type="file" hidden accept="image/*" />
-            <Typography sx={{ color: "gray" }}>Upload Logo</Typography>
+            <input
+              id="image"
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+            {imagePreview && (
+              <>
+                <IconButton
+                  onClick={handleEditClick}
+                  sx={{
+                    position: "absolute",
+                    bottom: "5px",
+                    right: "40px",
+                  }}
+                >
+                  <EditOutlined />
+                </IconButton>
+                <IconButton
+                  onClick={handleDeleteClick}
+                  sx={{
+                    position: "absolute",
+                    bottom: "5px",
+                    right: "5px",
+                    backgroundColor: "rgba(255, 255, 255, 0.8)",
+                  }}
+                >
+                  <DeleteOutline />
+                </IconButton>
+              </>
+            )}
+            <Typography variant="body2" sx={{ color: "#909090" }}>
+              Upload Logo
+            </Typography>
           </Box>
           <Typography variant="caption">
             Ukuran optimal 300x300 pixel dengan Besar file: Maximum 10MB

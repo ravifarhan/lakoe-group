@@ -6,6 +6,7 @@ import ProductManagement from "./pages/ProductManagement/index.tsx";
 import Orders from "./pages/Orders/index.tsx";
 import DetailOrder from "./components/DetailOrder/index.tsx";
 import Setting from "./pages/Setting/index.tsx";
+import PinPoint from "./components/PanelLocation/components/PinPoint.tsx";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/setting" element={<Setting />} />
           <Route path="/add-new-product" element={<NewProduct />} />
         </Route>
+        <Route path="/pinpoint" element={<PinPoint />} />
       </Routes>
     </BrowserRouter>
   );
