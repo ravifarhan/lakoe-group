@@ -31,6 +31,7 @@ const names = [
 
 export default function ListSortProduct() {
   const [personName, setPersonName] = React.useState<string[]>([]);
+  console.log(personName);
 
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
@@ -55,7 +56,7 @@ export default function ListSortProduct() {
           renderValue={(selected) => selected.join(", ")}
           MenuProps={MenuProps}
           sx={{
-            width: "200px",
+            width: "195px",
             height: "40px",
           }}
         >

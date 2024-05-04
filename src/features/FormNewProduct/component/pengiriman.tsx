@@ -10,12 +10,20 @@ import { FormEvent, useState } from "react";
 
 const Pengiriman = () => {
   const [beratProduct, setBeratProduct] = useState("");
+  const [panjangProduct, setPanjangProduct] = useState("");
+  const [lebarProduct, setLebarProduct] = useState("");
+  const [tinggiProduct, setTinggiProduct] = useState("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     console.log("Berat Produk:", beratProduct);
     setBeratProduct("");
+    console.log("Berat Produk:", beratProduct);
+    setPanjangProduct("");
+    console.log("Berat Produk:", beratProduct);
+    setLebarProduct("");
+    console.log("Berat Produk:", beratProduct);
+    setTinggiProduct("");
   };
 
   return (
@@ -23,7 +31,7 @@ const Pengiriman = () => {
       sx={{ mt: 2, p: 2 }}
       borderRadius={"8px"}
       flexDirection={"row"}
-      bgcolor={"#CECECE"}
+      bgcolor={"#ffffff"}
     >
       <Typography variant="h6" color={"black"} gutterBottom>
         Berat & Pengiriman
@@ -37,6 +45,7 @@ const Pengiriman = () => {
             </FormLabel>
             <TextField
               fullWidth
+              type="number"
               variant="outlined"
               style={{
                 backgroundColor: "white",
@@ -65,14 +74,15 @@ const Pengiriman = () => {
             <Grid item xs={4}>
               <TextField
                 fullWidth
+                type="number"
                 placeholder="Panjang"
                 variant="outlined"
                 style={{
                   backgroundColor: "white",
                   borderRadius: "5px",
                 }}
-                value={beratProduct}
-                onChange={(e) => setBeratProduct(e.target.value)}
+                value={panjangProduct}
+                onChange={(e) => setPanjangProduct(e.target.value)}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">cm</InputAdornment>
@@ -83,14 +93,15 @@ const Pengiriman = () => {
             <Grid item xs={4}>
               <TextField
                 fullWidth
+                type="number"
                 placeholder="Lebar"
                 variant="outlined"
                 style={{
                   backgroundColor: "white",
                   borderRadius: "5px",
                 }}
-                value={beratProduct}
-                onChange={(e) => setBeratProduct(e.target.value)}
+                value={lebarProduct}
+                onChange={(e) => setLebarProduct(e.target.value)}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">cm</InputAdornment>
@@ -101,14 +112,15 @@ const Pengiriman = () => {
             <Grid item xs={4}>
               <TextField
                 fullWidth
+                type="number"
                 placeholder="Tinggi"
                 variant="outlined"
                 style={{
                   backgroundColor: "white",
                   borderRadius: "5px",
                 }}
-                value={beratProduct}
-                onChange={(e) => setBeratProduct(e.target.value)}
+                value={tinggiProduct}
+                onChange={(e) => setTinggiProduct(e.target.value)}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">cm</InputAdornment>

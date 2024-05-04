@@ -30,13 +30,13 @@ const names = [
 ];
 
 export default function ListSortCategory() {
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [categoryName, setCategoryName] = React.useState<string[]>([]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  const handleChange = (event: SelectChangeEvent<typeof categoryName>) => {
     const {
       target: { value },
     } = event;
-    setPersonName(
+    setCategoryName(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
@@ -50,19 +50,19 @@ export default function ListSortCategory() {
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
-          value={personName}
+          value={categoryName}
           onChange={handleChange}
           input={<OutlinedInput label="Kategori" />}
           renderValue={(selected) => selected.join(", ")}
           MenuProps={MenuProps}
           sx={{
             height: "40px",
-            width: "200px",
+            width: "195px",
           }}
         >
           {names.map((name) => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={personName.indexOf(name) > -1} />
+              <Checkbox checked={categoryName.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}
