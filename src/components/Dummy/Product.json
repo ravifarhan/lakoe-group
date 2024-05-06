@@ -6,7 +6,7 @@
         "Harga": "Rp. 81.000",
         "Stok": "101",
         "SKU": "abcdefgh01",
-        "isChecked": true
+        "isActive": true
     },
     {
         "id" : 2,
@@ -15,7 +15,7 @@
         "Harga": "Rp. 122.000",
         "Stok": "321",
         "SKU": "afdfsdfsd02",
-        "isChecked": true
+        "isActive": true
     },
     {
         "id" : 3,
@@ -24,7 +24,7 @@
         "Harga": "Rp. 342.000",
         "Stok": "39",
         "SKU": "adadadads03",
-        "isChecked": false
+        "isActive": false
     },{
         "id" : 4,
         "image": "https://down-id.img.susercontent.com/file/id-11134207-7qul8-lgyltlz6ft9642",
@@ -32,7 +32,7 @@
         "Harga": "Rp. 101.000",
         "Stok": "178",
         "SKU": "sasafdsfg99",
-        "isChecked": true
+        "isActive": true
     },
     {
         "id" : 5,
@@ -41,7 +41,7 @@
         "Harga": "Rp. 242.000",
         "Stok": "12",
         "SKU": "asadsdlnd78",
-        "isChecked": false
+        "isActive": false
     }
    
 ]
