@@ -1,4 +1,4 @@
-import { Alert, Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 import PanelInformation from "../../components/PanelInformation";
 import PanelTemplateMessage from "../../components/PanelTemplateMessage";
@@ -12,11 +12,7 @@ interface TabPanelProps {
 
 const Setting = () => {
   const [value, setValue] = useState(0);
-  const [showAlert, setShowAlert] = useState(false);
 
-  const handleInformationSave = () => {
-    setShowAlert(true);
-  };
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -62,14 +58,6 @@ const Setting = () => {
           <Typography variant="h6" padding={"10px"} fontWeight={"bold"} marginRight={"40px"}>
             Fesyen Store
           </Typography>
-          {showAlert && (
-            <Alert
-              severity="success"
-              onClose={() => setShowAlert(false)}
-            >
-              Informasi toko berhasil disimpan
-            </Alert>
-          )}
         </Box>
         <Box sx={{ padding: "10px" }}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -90,7 +78,7 @@ const Setting = () => {
           </Box>
           <Box sx={{ padding: "10px" }}>
             <CustomTabPanel value={value} index={0}>
-              <PanelInformation onSaveInformation={handleInformationSave} />
+              <PanelInformation />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
               <PanelLocation />
