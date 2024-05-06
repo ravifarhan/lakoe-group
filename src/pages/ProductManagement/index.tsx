@@ -9,6 +9,7 @@ import ListSortCategory from "../../components/ListSortCategory";
 import ListSortProduct from "../../components/ListSortProduct";
 import ModalDelete from "../../features/ModalDelete";
 import { Link } from "react-router-dom";
+import ListProductAll from "../../components/ListProduct/ListProductAll";
 
 const ProductManagement = () => {
   const [value, setValue] = React.useState("1");
@@ -24,149 +25,153 @@ const ProductManagement = () => {
   };
 
   return (
-    <Box padding={"10px"}>
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        padding={"15px"}
-        sx={{ overflow: "none" }}
-      >
-        <Box>
-          <Typography
-            width={"200px"}
-            variant="h6"
-            fontWeight={"bold"}
-            color={"black"}
-          >
-            Daftar Produk
-          </Typography>
-        </Box>
-        <Link to={"/add-new-product"}>
-          <Box
-            sx={{
-              borderRadius: "20px",
-              bgcolor: "#0086b4",
-            }}
-          >
-            <Button
+    <Box padding={"20px"}>
+      <Box padding={"10px"} bgcolor={"white"} borderRadius={"10px"}>
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          padding={"15px"}
+          sx={{ overflow: "none" }}
+        >
+          <Box>
+            <Typography
+              width={"200px"}
+              variant="h6"
+              fontWeight={"bold"}
+              color={"black"}
+            >
+              Daftar Produk
+            </Typography>
+          </Box>
+          <Link to={"/add-new-product"}>
+            <Box
               sx={{
-                color: "white",
-                textTransform: "none",
+                borderRadius: "20px",
+                bgcolor: "#0086b4",
               }}
             >
-              <ControlPointIcon />
-              Tambah Produk
-            </Button>
-          </Box>
-        </Link>
-      </Box>
-      <Box>
-        <TabContext value={value}>
-          <Box
-            sx={{
-              borderBottom: 1,
-              borderColor: "divider",
-            }}
-          >
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab
+              <Button
                 sx={{
+                  color: "white",
                   textTransform: "none",
-                  color: "black",
-                  fontWeight: "bold",
                 }}
-                label="Semua"
-                value="1"
-              />
-              <Tab
-                sx={{
-                  textTransform: "none",
-                  color: "black",
-                  fontWeight: "bold",
-                }}
-                label="Aktif"
-                value="2"
-              />
-              <Tab
-                sx={{
-                  textTransform: "none",
-                  color: "black",
-                  fontWeight: "bold",
-                }}
-                label="Nonaktif"
-                value="3"
-              />
-            </TabList>
-          </Box>
-          <Box display={"flex"} alignItems={"center"} marginTop={"10px"}>
-            <SearchProduct />
-            <ListSortCategory />
-            <ListSortProduct />
-          </Box>
-          <Box
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-          >
-            <Box>
-              <Typography fontWeight={"bold"} color={"black"}>
-                1 Pesanan
-              </Typography>
+              >
+                <ControlPointIcon />
+                Tambah Produk
+              </Button>
             </Box>
-
+          </Link>
+        </Box>
+        <Box>
+          <TabContext value={value}>
+            <Box
+              sx={{
+                borderBottom: 1,
+                borderColor: "divider",
+              }}
+            >
+              <TabList
+                onChange={handleChange}
+                aria-label="lab API tabs example"
+              >
+                <Tab
+                  sx={{
+                    textTransform: "none",
+                    color: "black",
+                    fontWeight: "bold",
+                  }}
+                  label="Semua"
+                  value="1"
+                />
+                <Tab
+                  sx={{
+                    textTransform: "none",
+                    color: "black",
+                    fontWeight: "bold",
+                  }}
+                  label="Aktif"
+                  value="2"
+                />
+                <Tab
+                  sx={{
+                    textTransform: "none",
+                    color: "black",
+                    fontWeight: "bold",
+                  }}
+                  label="Nonaktif"
+                  value="3"
+                />
+              </TabList>
+            </Box>
+            <Box display={"flex"} alignItems={"center"} marginTop={"10px"}>
+              <SearchProduct />
+              <ListSortCategory />
+              <ListSortProduct />
+            </Box>
             <Box
               display={"flex"}
-              justifyContent={"end"}
               alignItems={"center"}
-              gap={1}
+              justifyContent={"space-between"}
             >
-              {selectAll && (
-                <Box
-                  display={"flex"}
-                  justifyContent={"end"}
-                  alignItems={"center"}
-                  gap={1}
-                >
-                  <Box>
-                    <ModalDelete />
-                  </Box>
-                  <Box>
-                    <Button
-                      sx={{
-                        height: "25px",
-                        borderRadius: "20px",
-                        border: "1px #909090 solid",
-                        textTransform: "none",
-                        color: "black",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Nonaktifkan Produk
-                    </Button>
-                  </Box>
-                </Box>
-              )}
+              <Box>
+                <Typography fontWeight={"bold"} color={"black"}>
+                  1 Pesanan
+                </Typography>
+              </Box>
 
-              <Box display={"flex"} alignItems={"center"}>
-                <Typography color={"black"}>Pilih Semua</Typography>
-                <Checkbox checked={selectAll} onChange={handleSelectAll} />
+              <Box
+                display={"flex"}
+                justifyContent={"end"}
+                alignItems={"center"}
+                gap={1}
+              >
+                {selectAll && (
+                  <Box
+                    display={"flex"}
+                    justifyContent={"end"}
+                    alignItems={"center"}
+                    gap={1}
+                  >
+                    <Box>
+                      <ModalDelete />
+                    </Box>
+                    <Box>
+                      <Button
+                        sx={{
+                          height: "25px",
+                          borderRadius: "20px",
+                          border: "1px #909090 solid",
+                          textTransform: "none",
+                          color: "black",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Nonaktifkan Produk
+                      </Button>
+                    </Box>
+                  </Box>
+                )}
+
+                <Box display={"flex"} alignItems={"center"}>
+                  <Typography color={"black"}>Pilih Semua</Typography>
+                  <Checkbox checked={selectAll} onChange={handleSelectAll} />
+                </Box>
               </Box>
             </Box>
-          </Box>
-          <Box mt={-3}>
-            <TabPanel value="1">
-              <ListProductAktif />
-              <ListProductNonaktif />
-            </TabPanel>
-            <TabPanel value="2">
-              <ListProductAktif />
-            </TabPanel>
-            <TabPanel value="3">
-              <ListProductNonaktif />
-            </TabPanel>
-          </Box>
-        </TabContext>
+            <Box mt={-3}>
+              <TabPanel value="1">
+                <ListProductAll />
+              </TabPanel>
+              <TabPanel value="2">
+                <ListProductAktif />
+              </TabPanel>
+              <TabPanel value="3">
+                <ListProductNonaktif />
+              </TabPanel>
+            </Box>
+          </TabContext>
+        </Box>
       </Box>
     </Box>
   );
