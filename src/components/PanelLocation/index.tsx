@@ -1,6 +1,6 @@
 import { FmdGoodOutlined, LocationOffOutlined } from "@mui/icons-material";
 import { Box, Typography, Button } from "@mui/material";
-import { useState } from "react";
+import {  useState } from "react";
 import ModalDialog from "../ModalPanel";
 import FormAddLocation from "./components/FormAddLocation";
 import ButtonEditDelete from "./components/ButtonEditDelete";
@@ -11,6 +11,7 @@ const PanelLocation = () => {
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+  
 
   return (
     <>

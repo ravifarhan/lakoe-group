@@ -11,14 +11,13 @@ import {
   IconButton,
   FormHelperText,
   Alert,
+  FormLabel,
 } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 import useInfoValidation, {
   IStoreForm,
-} from "../../lib/hook/validation/useStoreValidation";
+} from "../../lib/hook/validation/SettingValidation/useStoreValidation";
 import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
-
-
 
 const PanelInformation = () => {
   const { control, handleSubmit, watch } = useInfoValidation();
@@ -113,12 +112,13 @@ const PanelInformation = () => {
         <form onSubmit={handleSubmit(submitHandler, handleSubmitError)}>
           <Box display={"flex"} gap={2}>
             <Box display={"flex"} flexDirection={"column"} width={"50%"}>
-              <label htmlFor="store_name">Nama Toko</label>
+              <FormLabel htmlFor="store_name">Nama Toko</FormLabel>
               <Controller
                 name="store_name"
                 control={control}
                 render={({ field, fieldState }) => (
                   <TextField
+                    id="store_name"
                     size="small"
                     // defaultValue="Fesyen Store"
                     fullWidth
@@ -128,9 +128,9 @@ const PanelInformation = () => {
                   />
                 )}
               />
-              <label style={{ marginTop: "10px" }} htmlFor="slogan">
+              <FormLabel style={{ marginTop: "10px" }} htmlFor="slogan">
                 Slogan
-              </label>
+              </FormLabel>
               <Controller
                 name="slogan"
                 control={control}
@@ -151,16 +151,16 @@ const PanelInformation = () => {
               </FormHelperText>
             </Box>
             <Box display={"flex"} flexDirection={"column"} width={"50%"}>
-              <label htmlFor="description">Deskripsi</label>
+              <FormLabel htmlFor="description">Deskripsi</FormLabel>
               <Controller
                 name="description"
                 control={control}
                 render={({ field, fieldState }) => (
                   <TextField
+                    id="description"
+                    fullWidth
                     multiline
                     rows={3.5}
-                    fullWidth
-                    label="Deskripsi Toko"
                     placeholder="Tuliskan deskripsi toko disini"
                     {...field}
                     error={!!fieldState.error?.message}
@@ -194,90 +194,96 @@ const PanelInformation = () => {
               Simpan
             </Button>
           </Box>
-        </form>
-        <Box
-          display={"flex"}
-          flexDirection={"column"}
-          borderTop={"1px solid #e6e4e5"}
-        >
-          <Typography variant="h6" fontWeight={"bold"}>
-            Logo Toko
-          </Typography>
           <Box
             display={"flex"}
-            borderRadius={"10px"}
-            padding={"10px"}
-            border={"1px solid #e6e4e5"}
-            width={"200px"}
-            height={"200px"}
-            justifyContent={"center"}
-            alignItems={"center"}
             flexDirection={"column"}
-            position="relative"
+            borderTop={"1px solid #e6e4e5"}
+            marginTop={"10px"}
           >
-            <label htmlFor="image">
-              {imagePreview ? (
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    objectFit: "cover",
-                    borderRadius: "5px",
-                  }}
-                />
-              ) : (
-                <AddPhotoAlternateOutlined
-                  fontSize="large"
-                  sx={{ color: "#909090" }}
-                  cursor={"pointer"}
-                />
+            <Typography
+              sx={{ marginTop: "10px" }}
+              variant="h6"
+              fontWeight={"bold"}
+            >
+              Logo Toko
+            </Typography>
+            <Box
+              display={"flex"}
+              borderRadius={"10px"}
+              padding={"10px"}
+              border={"1px solid #e6e4e5"}
+              width={"200px"}
+              height={"200px"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+              position="relative"
+              marginTop={"10px"}
+            >
+              <label htmlFor="image">
+                {imagePreview ? (
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      objectFit: "cover",
+                      borderRadius: "5px",
+                    }}
+                  />
+                ) : (
+                  <AddPhotoAlternateOutlined
+                    fontSize="large"
+                    sx={{ color: "#909090" }}
+                    cursor={"pointer"}
+                  />
+                )}
+              </label>
+              <input
+                id="image"
+                type="file"
+                hidden
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+              {imagePreview && (
+                <>
+                  <IconButton
+                    onClick={handleEditClick}
+                    sx={{
+                      position: "absolute",
+                      bottom: "5px",
+                      right: "40px",
+                    }}
+                  >
+                    <EditOutlined />
+                  </IconButton>
+                  <IconButton
+                    onClick={handleDeleteClick}
+                    sx={{
+                      position: "absolute",
+                      bottom: "5px",
+                      right: "5px",
+                      backgroundColor: "rgba(255, 255, 255, 0.8)",
+                    }}
+                  >
+                    <DeleteOutline />
+                  </IconButton>
+                </>
               )}
-            </label>
-            <input
-              id="image"
-              type="file"
-              hidden
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-            {imagePreview && (
-              <>
-                <IconButton
-                  onClick={handleEditClick}
-                  sx={{
-                    position: "absolute",
-                    bottom: "5px",
-                    right: "40px",
-                  }}
-                >
-                  <EditOutlined />
-                </IconButton>
-                <IconButton
-                  onClick={handleDeleteClick}
-                  sx={{
-                    position: "absolute",
-                    bottom: "5px",
-                    right: "5px",
-                    backgroundColor: "rgba(255, 255, 255, 0.8)",
-                  }}
-                >
-                  <DeleteOutline />
-                </IconButton>
-              </>
-            )}
-            <Typography variant="body2" sx={{ color: "#909090" }}>
-              Upload Logo
+              <Typography variant="body2" sx={{ color: "#909090" }}>
+                Upload Logo
+              </Typography>
+            </Box>
+            <Typography variant="caption">
+              Ukuran optimal 300x300 pixel dengan Besar file: Maximum 10MB
+            </Typography>
+            <Typography variant="caption">
+              Ekstensi file ynag diperbolehkan: JPG.JPEG.PNG
             </Typography>
           </Box>
-          <Typography variant="caption">
-            Ukuran optimal 300x300 pixel dengan Besar file: Maximum 10MB
-          </Typography>
-          <Typography variant="caption">
-            Ekstensi file ynag diperbolehkan: JPG.JPEG.PNG
-          </Typography>
-        </Box>
+        </form>
       </Box>
     </>
   );
