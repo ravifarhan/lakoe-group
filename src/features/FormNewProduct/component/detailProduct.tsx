@@ -6,7 +6,7 @@ import useProductValidation, {
 } from "../../../lib/hook/validation/useProductValidation";
 
 const DetailProduct = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const { reset, control, handleSubmit } = useProductValidation();
 
   const submitHandler: SubmitHandler<ITestForm> = (data) => {
@@ -24,7 +24,7 @@ const DetailProduct = () => {
   ) => {
     const files = event.target.files;
     if (files) {
-      const newSelectedFiles = [...selectedFiles];
+      const newSelectedFiles: File[] = [...selectedFiles];
       newSelectedFiles[index] = files[0];
       setSelectedFiles(newSelectedFiles);
     }

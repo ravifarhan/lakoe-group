@@ -1,4 +1,4 @@
-import { Box, Button, Snackbar, SnackbarOrigin, Typography } from '@mui/material'
+import { Alert, Box, Button, Snackbar, SnackbarOrigin, Typography } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import React, { useState } from "react";
 
@@ -6,7 +6,7 @@ interface State extends SnackbarOrigin {
   open: boolean;
 }
 
-const Alert = () => {
+const AlertCopy = () => {
   const [state, setState] = useState<State>({
     open: false,
     vertical: 'top',
@@ -57,4 +57,4 @@ const Alert = () => {
   )
 }
 
-export default Alert
+export default AlertCopy

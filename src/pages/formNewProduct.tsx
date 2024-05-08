@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Informasi from "../features/FormNewProduct/component/informasi";
 import { Box, Button, Container, FormLabel, Typography } from "@mui/material";
 import { AddCircleOutline as AddCircleOutlineIcon } from "@mui/icons-material";

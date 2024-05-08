@@ -1,25 +1,16 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material'
-import CircleIcon from '@mui/icons-material/Circle';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material'
 import ArticleIcon from '@mui/icons-material/Article';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
+import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, timelineItemClasses, TimelineSeparator } from '@mui/lab';
+import { ITrackingOrderListProps } from '../../../../types';
 
-const TrackingOrderCard = () => {
+const TrackingOrderCard: React.FC<ITrackingOrderListProps> = ({ list }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleAccordion = () => {
     setIsExpanded(!isExpanded);
   };
-
-  const isActive = true
-
-  // const listItems = [
-  //   { primary: "Produk Telah Diterima", secondary: "Sen, 12 Agu 2023 - 10:00 WIB" },
-  //   { primary: "Produk Telah Dikirim", secondary: "Sab, 10 Agu 2023 - 20:00 WIB" },
-  //   { primary: "Pesanan Diproses", secondary: "Sab, 10 Agu 2023 - 15:00 WIB" },
-  //   { primary: "Pembayaran Terverifikasi", secondary: "Sab, 10 Agu 2023 - 14:12 WIB" },
-  //   { primary: "Pesanan Dibuat", secondary: "Sab, 10 Agu 2023 - 14:00 WIB" }
-  // ];
 
   return (
     <Box bgcolor={'white'} display={'flex'} gap={1} px={5} py={2} sx={{ borderRadius: '10px' }}>
@@ -38,67 +29,32 @@ const TrackingOrderCard = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-              <Box sx={{ maxWidth: 400 }}>
-                <List>
-                  <ListItem>
-                    <ListItemIcon>
-                      {isActive ?
-                        <CircleIcon sx={{ fill: '#0086b4', stroke: '#c5f8ff', strokeWidth: 5 }} /> :
-                        <CircleIcon sx={{ fill: '#D5D5D5', stroke: '#F8F8F8', strokeWidth: 5 }} />
-                      }
-                    </ListItemIcon>
-                    <ListItemText
-                      primary="Produk Telah Diterima"
-                      secondary="Sen, 12 Agu 2023 - 10:00 WIB"
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                    />
-                  </ListItem>
-                  <Box sx={{ borderLeft: '1px solid gray', ml: '27px', height: "24px" }} />
-                  <ListItem sx={{py:0}} >
-                    <ListItemIcon>
-                      <CircleIcon sx={{ fill: '#D5D5D5', stroke: '#F8F8F8', strokeWidth: 5 }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary="Produk Telah Dikirim"
-                      secondary="Sab, 10 Agu 2023 - 20:00 WIB"
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                    />
-                  </ListItem>
-                  <Box sx={{ borderLeft: '1px solid gray', ml: '27px', height: "24px" }} />
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ fill: '#D5D5D5', stroke: '#F8F8F8', strokeWidth: 5 }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary="Pesanan Diproses"
-                      secondary="Sab, 10 Agu 2023 - 15:00 WIB"
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                    />
-                  </ListItem>
-                  <Box sx={{ borderLeft: '1px solid gray', ml: '27px', height: "24px" }} />
-                  <ListItem sx={{py:0}}>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ fill: '#D5D5D5', stroke: '#F8F8F8', strokeWidth: 5 }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary="Pembayaran Terverifikasi"
-                      secondary="Sab, 10 Agu 2023 - 14:12 WIB"
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                    />
-                  </ListItem>
-                  <Box sx={{ borderLeft: '1px solid gray', ml: '27px', height: "24px", }} />
-                  <ListItem sx={{ py: 0 }}>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ fill: '#D5D5D5', stroke: '#F8F8F8', strokeWidth: 5 }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary="Pesanan Dibuat"
-                      secondary="Sab, 10 Agu 2023 - 14:00 WIB"
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                    />
-                  </ListItem>
-                </List>
-              </Box>
+            <Timeline sx={{ [`& .${timelineItemClasses.root}:before`]: { flex: 0, paddingX: 0, } }}>
+              {
+                list.map((props, index) => {
+                  const isFirst = index === 0;
+                  const isLast = index === list.length - 1;
+                  return (
+                    <TimelineItem key={index}>
+                      <TimelineSeparator>
+                        {
+                          isFirst ?
+                            <TimelineDot variant='outlined' className='.MuiTimelineDot-outlined.css' sx={{ stroke: '#c5f8ff', strokeWidth: 5, bgcolor: '#0086b4' }} /> :
+                            <TimelineDot />
+                        }
+                        {
+                          !isLast && <TimelineConnector />
+                        }
+                      </TimelineSeparator>
+                      <TimelineContent>
+                        <Typography>{props.status}</Typography>
+                        <Typography>{props.date}</Typography>
+                      </TimelineContent>
+                    </TimelineItem>
+                  )
+                })
+              }
+            </Timeline>
           </AccordionDetails>
         </Accordion>
       </Box>

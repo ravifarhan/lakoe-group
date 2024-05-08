@@ -1,0 +1,22 @@
+[
+  {
+    "status": "Produk Telah Diterima",
+    "date": "Sen, 12 Agu 2023 - 10:00 WIB"
+  },
+  {
+    "status": "Produk Telah Dikirim",
+    "date": "Sab, 10 Agu 2023 - 20:00 WIB"
+  },
+  {
+    "status": "Pesanan Diproses",
+    "date": "Sab, 10 Agu 2023 - 15:00 WIB"
+  },
+  {
+    "status": "Pembayaran Terverifikasi",
+    "date": "Sab, 10 Agu 2023 - 14:12 WIB"
+  },
+  {
+    "status": "Pesanan Dibuat",
+    "date": "Sab, 10 Agu 2023 - 14:00 WIB"
+  }
+]

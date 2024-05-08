@@ -6,3 +6,12 @@ interface IUser {
 interface INewProduct {
   image: string;
 }
+
+export interface ITrackingOrderProps {
+  status: string
+  date: string
+}
+
+export interface ITrackingOrderListProps {
+  list: ITrackingOrderProps[]
+}
