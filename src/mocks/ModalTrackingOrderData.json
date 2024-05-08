@@ -1,0 +1,30 @@
+[
+  {
+    "status": "DELIVERED TO [ainul yakin | 17-03-2021 11:15 | JAKARTA ]",
+    "date": "Sen, 12 Agu 2023 - 10:00 WIB"
+  },
+  {
+    "status": "WITH DELIVERY COURIER [JAKARTA , HUB VETERAN BINTARO]",
+    "date": "Sab, 10 Agu 2023 - 20:00 WIB"
+  },
+  {
+    "status": "RECEIVED AT INBOUND STATION [JAKARTA , HUB VETERAN BINTARO]",
+    "date": "Sab, 10 Agu 2023 - 20:00 WIB"
+  },
+  {
+    "status": "SHIPMENT FORWARDED TO DESTINATION [JAKARTA , HUB VETERAN BINTARO]",
+    "date": "Sab, 10 Agu 2023 - 20:00 WIB"
+  },
+  {
+    "status": "Pesanan Diproses",
+    "date": "Sab, 10 Agu 2023 - 15:00 WIB"
+  },
+  {
+    "status": "RECEIVED AT SORTING CENTER [JAKARTA]",
+    "date": "Sab, 10 Agu 2023 - 14:12 WIB"
+  },
+  {
+    "status": "SHIPMENT RECEIVED BY JNE COUNTER OFFICER AT [JAKARTA]",
+    "date": "Sab, 10 Agu 2023 - 14:00 WIB"
+  }
+]
