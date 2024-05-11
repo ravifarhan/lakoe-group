@@ -7,12 +7,14 @@ import Orders from "./pages/Orders/index.tsx";
 import DetailOrder from "./pages/DetailOrder/index.tsx";
 import Setting from "./pages/Setting/index.tsx";
 import Register from "./pages/Register/index.tsx";
+import Login from "./pages/Login/index.tsx";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/product-management" element={<ProductManagement />} />

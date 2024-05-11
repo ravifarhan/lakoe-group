@@ -6,7 +6,6 @@ import { Box } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import EditIcon from "@mui/icons-material/Edit";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Delete } from "@mui/icons-material";
 
 export default function CardProductBihaviour() {

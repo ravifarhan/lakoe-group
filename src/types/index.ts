@@ -15,3 +15,9 @@ export interface ITrackingOrderProps {
 export interface ITrackingOrderListProps {
   list: ITrackingOrderProps[]
 }
+
+export interface IRegisterBody {
+  name: string
+  email: string
+  password: string
+}
