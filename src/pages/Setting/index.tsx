@@ -9,8 +9,10 @@ interface TabPanelProps {
   index: number;
   value: number;
 }
+
 const Setting = () => {
   const [value, setValue] = useState(0);
+
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -49,11 +51,19 @@ const Setting = () => {
           bgcolor: "white",
           margin: "20px",
           borderRadius: "10px",
+          boxShadow: 2,
         }}
       >
-        <Typography variant="h6" padding={"10px"} fontWeight={"bold"}>
-          Fesyen Store
-        </Typography>
+        <Box display={"flex"}>
+          <Typography
+            variant="h6"
+            padding={"10px"}
+            fontWeight={"bold"}
+            marginRight={"40px"}
+          >
+            Fesyen Store
+          </Typography>
+        </Box>
         <Box sx={{ padding: "10px" }}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <Tabs

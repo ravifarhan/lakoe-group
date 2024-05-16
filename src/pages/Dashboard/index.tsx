@@ -2,7 +2,6 @@ import {
   Avatar,
   Box,
   InputAdornment,
-  StyledEngineProvider,
   TextField,
   Typography,
 } from "@mui/material";
@@ -41,26 +40,25 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <StyledEngineProvider injectFirst>
-      <Box
-        display={"flex"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        p={2}
-        boxShadow={4}
-      >
-        <Box display={"flex"} gap={2} alignItems={"center"}>
+    <>
+      <Box margin={"20px"} borderRadius={"10px"} boxShadow={2} bgcolor={"white"}>
+        <Box
+          display={"flex"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          p={2}
+          // bgcolor={"white"}
+          borderBottom={"2px solid #f6f4ff"}
+        >
           <Typography className="title">
             Hello, {currentUser?.username} &#x1F44B;
           </Typography>
-        </Box>
-        <Box display={"flex"} alignItems={"center"} gap={2}>
           <Box
             sx={{
               bgcolor: "#f6f4ff",
               p: 1,
-              borderRadius: "155px",
-              width: "500px",
+              borderRadius: "100px",
+              width: "50%",
             }}
           >
             <TextField
@@ -93,40 +91,51 @@ export default function Dashboard() {
             <Typography className="title">{currentUser?.username}</Typography>
           </Box>
         </Box>
-      </Box>
-      <Box display={"flex"} color={"black"} padding={4} gap={4}>
-        <TotalCustomers />
-        <TotalProducts />
-        <TotalOrders />
-        <TotalSales />
-      </Box>
-      <Box display={"flex"} p={4}>
-        <Box bgcolor={"#f7f5ff"} flex={2.5}>
-          <LineChart
-            height={350}
-            series={[
-              { data: currentYear, label: "Current Year", color: "#ac92fd" },
-              { data: lastYear, label: "Last Year", color: "#fa2833" },
-            ]}
-            xAxis={[{ scaleType: "band", data: xLabels }]}
-          />
+        <Box display={"flex"} padding={1} gap={1}>
+          <TotalCustomers />
+          <TotalProducts />
+          <TotalOrders />
+          <TotalSales />
         </Box>
-        <Box flex={1}>
-          T
-          <BarChart
-            xAxis={[
-              { scaleType: "band", data: ["group A", "group B", "group C"] },
-            ]}
-            series={[
-              { data: [4, 3, 5] },
-              { data: [1, 6, 3] },
-              { data: [2, 5, 6] },
-            ]}
-            width={500}
-            height={300}
-          />
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          padding={4}
+          justifyContent={"center"}
+        >
+          <Box>
+            <LineChart
+              height={350}
+              series={[
+                {
+                  data: currentYear,
+                  label: "Current Year",
+                  color: "#ac92fd",
+                },
+                { data: lastYear, label: "Last Year", color: "#fa2833" },
+              ]}
+              xAxis={[{ scaleType: "band", data: xLabels }]}
+            />
+          </Box>
+          <Box display={"flex"} justifyContent={"center"}>
+            T
+            <BarChart
+              xAxis={[
+                {
+                  scaleType: "band",
+                  data: ["group A", "group B", "group C"],
+                },
+              ]}
+              series={[
+                { data: [4, 3, 5] },
+                { data: [1, 6, 3] },
+                { data: [2, 5, 6] },
+              ]}
+              height={300}
+            />
+          </Box>
         </Box>
       </Box>
-    </StyledEngineProvider>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Button, Checkbox, Switch, Typography } from "@mui/material";
 import ModalPrice from "../../../features/ModalPrice";
 import ModalStock from "../../../features/ModalStock";
@@ -5,12 +6,12 @@ import { Link } from "react-router-dom";
 import CardProductBihaviour from "../../../features/CardProductBihaviour";
 import DummyProduct from "../../Dummy/Product.json";
 
-const ProductCardActive = () => {
+const ProductCardNonActive = () => {
   return (
     <Box>
       {DummyProduct.map(
         (dummy) =>
-          dummy.isActive === true && (
+          dummy.isActive === false && (
             <Box
               display={"flex"}
               border={"1px #e6e4e5 solid"}
@@ -104,4 +105,4 @@ const ProductCardActive = () => {
   );
 };
 
-export default ProductCardActive;
+export default ProductCardNonActive;
