@@ -2,10 +2,11 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../lib/API/call/auth";
 
 const Login = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [formInput, setFormInput] = useState<{ name: string; password: string; }>({
     name: "",
@@ -14,7 +15,14 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('login sukses');
+    try {
+      const res = await login(formInput);
+      const token = res.data.access_token
+      localStorage.setItem("token", token)
+      navigate("/")
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

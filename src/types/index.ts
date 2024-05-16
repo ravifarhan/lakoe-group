@@ -20,4 +20,17 @@ export interface IRegisterBody {
   name: string
   email: string
   password: string
+  phone: string
+}
+
+export interface ILoginBody {
+  name: string
+  password: string
+}
+
+export interface ICurrentUser {
+  sub: string
+  username: string
+  email: string
+  phone: string
 }
