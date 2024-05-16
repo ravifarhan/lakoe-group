@@ -6,12 +6,16 @@ import ProductManagement from "./pages/ProductManagement/index.tsx";
 import Orders from "./pages/Orders/index.tsx";
 import DetailOrder from "./pages/DetailOrder/index.tsx";
 import Setting from "./pages/Setting/index.tsx";
+import Register from "./pages/Register/index.tsx";
+import Login from "./pages/Login/index.tsx";
 import PinPoint from "./components/PanelLocation/components/PinPoint.tsx";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="/product-management" element={<ProductManagement />} />
