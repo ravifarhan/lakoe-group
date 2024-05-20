@@ -1,15 +1,10 @@
+import { HighlightOffOutlined, LocationOff } from "@mui/icons-material";
 import {
-  HighlightOffOutlined,
-  LocationOff,
-  LocationOn,
-  Room,
-} from "@mui/icons-material";
-import {
+  Autocomplete,
   Box,
   Button,
   FormHelperText,
   FormLabel,
-  MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
@@ -17,6 +12,7 @@ import useLocationValidation, {
   ILocationForm,
 } from "../../../lib/hook/validation/SettingValidation/useLocationValidation";
 import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
+import Districts from "../../../mocks/districts.json";
 
 interface ILocationProps {
   callback?: () => void;
@@ -24,6 +20,7 @@ interface ILocationProps {
 
 const FormAddLocation: React.FC<ILocationProps> = ({ callback }) => {
   const { control, handleSubmit } = useLocationValidation();
+
   const submitHandler: SubmitHandler<ILocationForm> = (data) => {
     console.log(data, null, 2);
   };
@@ -31,6 +28,7 @@ const FormAddLocation: React.FC<ILocationProps> = ({ callback }) => {
   const handleSubmitError: SubmitErrorHandler<ILocationForm> = (data) => {
     console.log(data, null, 2);
   };
+
   return (
     <>
       <Box
@@ -90,21 +88,44 @@ const FormAddLocation: React.FC<ILocationProps> = ({ callback }) => {
               name="city"
               control={control}
               render={({ field, fieldState }) => (
-                <TextField
-                  id="city"
-                  select
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
                   size="small"
-                  placeholder="Cari kota/kecamatan"
-                  fullWidth
-                  {...field}
-                  error={!!fieldState.error?.message}
-                  helperText={fieldState.error?.message}
-                >
-                  <MenuItem value="option1">Bintaro</MenuItem>
-                  <MenuItem value="option2">Sawangan</MenuItem>
-                </TextField>
+                  options={Districts}
+                  getOptionLabel={(option) => option.alt_name}
+                  filterOptions={(options, { inputValue }) =>
+                    options
+                      .filter((option) =>
+                        option.alt_name
+                          .toLowerCase()
+                          .includes(inputValue.toLowerCase())
+                      )
+                      .slice(0, 3)
+                  }
+                  onChange={(_event, value) =>
+                    field.onChange(value ? value.name : "")
+                  }
+                  value={
+                    Districts.find(
+                      (district) => district.name === field.value
+                    ) || null
+                  } 
+                  isOptionEqualToValue={(option, value) =>
+                    option.name === (value ? value.name : "")
+                  }
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="Cari Kota/kecamatan"
+                      error={!!fieldState.error?.message}
+                      helperText={fieldState.error?.message}
+                    />
+                  )}
+                />
               )}
             />
+
             <FormLabel
               htmlFor="kodepos"
               sx={{ color: "black", fontSize: "14px" }}
