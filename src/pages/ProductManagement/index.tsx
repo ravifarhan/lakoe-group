@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Button, Checkbox, Tab, Typography } from "@mui/material";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
@@ -12,15 +12,16 @@ import { Link } from "react-router-dom";
 import ListProductAll from "../../components/ListProduct/ListProductAll";
 
 const ProductManagement = () => {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = useState("1");
 
-  const [selectAll, setSelectAll] = React.useState(false);
+  const [selectAll, setSelectAll] = useState(false);
 
   const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectAll(event.target.checked);
   };
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    event.preventDefault();
     setValue(newValue);
   };
 

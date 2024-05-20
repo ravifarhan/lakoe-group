@@ -1,8 +1,6 @@
 import {
   HighlightOffOutlined,
-  LocationOff,
-  LocationOn,
-  Room,
+  LocationOff
 } from "@mui/icons-material";
 import {
   Box,
