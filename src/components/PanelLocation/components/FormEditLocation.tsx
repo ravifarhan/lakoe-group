@@ -98,7 +98,7 @@ const FormEditLocation: React.FC<ILocationProps> = ({ callback }) => {
                   error={!!fieldState.error?.message}
                   helperText={fieldState.error?.message}
                 >
-                  <MenuItem value="option1">Bintaro</MenuItem>
+                  <MenuItem value="option1"></MenuItem>
                   <MenuItem value="option2">Sawangan</MenuItem>
                 </TextField>
               )}
