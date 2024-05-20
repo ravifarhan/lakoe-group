@@ -1,11 +1,11 @@
-interface IUser {
-  id: number;
-  name: string;
-}
+// interface IUser {
+//   id: number;
+//   name: string;
+// }
 
-interface INewProduct {
-  image: string;
-}
+// interface INewProduct {
+//   image: string;
+// }
 
 export interface ITrackingOrderProps {
   status: string

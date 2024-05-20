@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Input, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import {
   useForm,
   Controller,
@@ -50,7 +50,7 @@ export default function ModalPrice() {
     resolver: yupResolver(TestFormSchema),
   });
 
-  const handleOnSubmit: SubmitHandler<ITestForm> = (data) => {
+  const handleOnSubmit: SubmitHandler<ITestForm> = () => {
     alert("Berhasil Mengubah Harga");
     reset();
   };
