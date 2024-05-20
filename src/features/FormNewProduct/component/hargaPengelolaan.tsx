@@ -24,11 +24,8 @@ const HargaPengelolaan = () => {
     alert("error" + JSON.stringify(data, null, 2));
   };
 
-  // State untuk menyimpan minimal pembelian
-  const [minProduct, setMinProduct] = useState("");
-
-  // State untuk menyimpan SKU
-  const [sku, setSku] = useState("");
+  const [minProduct, setMinProduct] = useState(""); // State untuk menyimpan minimal pembelian
+  const [sku, setSku] = useState(""); // State untuk menyimpan SKU
 
   return (
     <>
@@ -75,9 +72,7 @@ const HargaPengelolaan = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <FormLabel component="legend">
-                Minimal Pembelian <span style={{ color: "red" }}>*</span>
-              </FormLabel>
+              <FormLabel component="legend">Minimal Pembelian</FormLabel>
               <TextField
                 fullWidth
                 type="number"

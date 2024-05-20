@@ -6,24 +6,36 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
+import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
+import useProductValidation, {
+  ITestForm,
+} from "../../../lib/hook/validation/useProductValidation";
 
 const Pengiriman = () => {
-  const [beratProduct, setBeratProduct] = useState("");
   const [panjangProduct, setPanjangProduct] = useState("");
   const [lebarProduct, setLebarProduct] = useState("");
   const [tinggiProduct, setTinggiProduct] = useState("");
+  const {control, handleSubmit,reset} = useProductValidation()
+  // const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   console.log("Berat Produk:", beratProduct);
+  //   setBeratProduct("");
+  //   console.log("Berat Produk:", beratProduct);
+  //   setPanjangProduct("");
+  //   console.log("Berat Produk:", beratProduct);
+  //   setLebarProduct("");
+  //   console.log("Berat Produk:", beratProduct);
+  //   setTinggiProduct("");
+  // };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Berat Produk:", beratProduct);
-    setBeratProduct("");
-    console.log("Berat Produk:", beratProduct);
-    setPanjangProduct("");
-    console.log("Berat Produk:", beratProduct);
-    setLebarProduct("");
-    console.log("Berat Produk:", beratProduct);
-    setTinggiProduct("");
+  const submitHandler: SubmitHandler<ITestForm> = (data) => {
+    alert(JSON.stringify(data, null, 2));
+    reset();
+  };
+
+  const handleSubmitError: SubmitErrorHandler<ITestForm> = (data) => {
+    alert("error" + JSON.stringify(data, null, 2));
   };
 
   return (
@@ -37,29 +49,41 @@ const Pengiriman = () => {
         Berat & Pengiriman
       </Typography>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(submitHandler, handleSubmitError)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FormLabel component="legend">
               Berat Produk <span style={{ color: "red" }}>*</span>
             </FormLabel>
+            <Controller
+              control={control}
+              name="berat_produk"
+              render={({ field, fieldState }) => (
             <TextField
               fullWidth
-              type="number"
+              type="berat_produk"
               variant="outlined"
+              placeholder="Nama Produk"
+
               style={{
                 backgroundColor: "white",
                 borderRadius: "5px",
               }}
-              value={beratProduct}
-              onChange={(e) => setBeratProduct(e.target.value)}
+              
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">Gram</InputAdornment>
                 ),
               }}
+              {...field}
+              error={!!fieldState.error?.message}
+              helperText={fieldState.error?.message}
+              // value={productUrl}
+              // onChange={(e) => setProductUrl(e.target.value)}
             />
-          </Grid>
+          )}
+        />
+      </Grid>
           <FormLabel
             component="legend"
             style={{

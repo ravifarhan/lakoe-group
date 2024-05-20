@@ -1,6 +1,5 @@
-import { Box, SelectChangeEvent, TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import React from "react";
-import ZoomInIcon from "@mui/icons-material/ZoomIn";
 
 const SearchProduct = () => {
   const [search, setSeacrch] = React.useState("");

@@ -13,31 +13,32 @@ import TotalCustomers from "./component/TotalCustomers";
 import TotalOrders from "./component/TotalOrders";
 import TotalSales from "./component/TotalSales";
 import { BarChart, LineChart } from "@mui/x-charts";
-
-const lastYear = [
-  40000, 30000, 20000, 27800, 18900, 23900, 34900, 38000, 39008, 48000, 38000,
-  43000,
-];
-const currentYear = [
-  24000, 13980, 58000, 39008, 48000, 38000, 43000, 27800, 18900, 23900, 34900,
-  38000,
-];
-const xLabels = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+import { currentYear, lastYear, xLabels } from "./component/chart-helper";
+import { getCurrentUser } from "../../lib/API/call/auth";
+import { useEffect, useState } from "react";
+import { ICurrentUser } from "../../types";
 
 export default function Dashboard() {
+  const [currentUser, setCurrentUser] = useState<ICurrentUser>({
+    sub: "",
+    username: "",
+    email: "",
+    phone: "",
+  })
+
+  const getUser = async () => {
+    try {
+      const res = await getCurrentUser()
+      setCurrentUser(res.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
   return (
     <>
       <Box margin={"20px"} borderRadius={"10px"} boxShadow={2} bgcolor={"white"}>
@@ -50,7 +51,7 @@ export default function Dashboard() {
           borderBottom={"2px solid #f6f4ff"}
         >
           <Typography className="title">
-            Hello, Sutan Arief &#x1F44B;
+            Hello, {currentUser?.username} &#x1F44B;
           </Typography>
           <Box
             sx={{
@@ -87,7 +88,7 @@ export default function Dashboard() {
               src="/static/images/avatar/1.jpg"
               sx={{ width: 50, height: 50 }}
             />
-            <Typography className="title">Sutan Arief</Typography>
+            <Typography className="title">{currentUser?.username}</Typography>
           </Box>
         </Box>
         <Box display={"flex"} padding={1} gap={1}>

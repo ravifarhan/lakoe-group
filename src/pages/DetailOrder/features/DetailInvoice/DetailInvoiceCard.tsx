@@ -3,6 +3,7 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import CopyIcon from "../Alerts/CopyIcon";
 
 const DetailInvoiceCard = () => {
 
@@ -21,18 +22,8 @@ const DetailInvoiceCard = () => {
             <CreditCardIcon sx={{ width: '42px', height: '42px', fill: '#40a4c7' }} />
             <Typography sx={{ fontWeight: 'bold', fontSize: 'large' }}>Invoice</Typography>
           </Box>
-          <Box display={'flex'} gap={1} alignItems={'center'}>
-            {/* Masih Error */}
-            {/* <Button sx={{ bgcolor: 'none', padding: 0, height: 28, minWidth: 0 }} onClick={handleClick({ vertical: 'top', horizontal: 'center' })}>
-              <Stack sx={{ width: '100%' }} spacing={2}>
-                <ContentCopyIcon sx={{ width: '20px', height: '20px' }} />
-                <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-                  <Alert icon={<InfoIcon fontSize="inherit" sx={{ fill: 'white' }} />} severity="info" style={{ backgroundColor: '#1D1D1D' }}>
-                    <Typography color={'white'} fontSize={'small'}>Nomor Resi berhasil disalin</Typography>
-                  </Alert>
-                </Snackbar>
-              </Stack>
-            </Button> */}
+          <Box display={'flex'}>
+            <CopyIcon text={["INV/20230809/MPL/00000239"]} status="Nomor Invoice berhasil disalin"/>
             <Typography textAlign={'end'}>INV/20230809/MPL/00000239</Typography>
           </Box>
         </Box>

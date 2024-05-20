@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Button, Checkbox, Switch, Typography } from "@mui/material";
 import ModalPrice from "../../../features/ModalPrice";
 import ModalStock from "../../../features/ModalStock";

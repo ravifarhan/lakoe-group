@@ -1,18 +1,19 @@
-import { HighlightOffOutlined, LocationOff } from "@mui/icons-material";
+
 import {
-  Autocomplete,
   Box,
   Button,
   FormHelperText,
   FormLabel,
   TextField,
   Typography,
+  Autocomplete,
 } from "@mui/material";
 import useLocationValidation, {
   ILocationForm,
 } from "../../../lib/hook/validation/SettingValidation/useLocationValidation";
 import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
 import Districts from "../../../mocks/districts.json";
+import { HighlightOffOutlined, LocationOff } from "@mui/icons-material";
 
 interface ILocationProps {
   callback?: () => void;
