@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/index.tsx";
 import MainLayout from "./layouts/MainLayout";
-import NewProduct from "./pages/formNewProduct";
+import NewProduct from "./pages/NewProduct/index.tsx";
 import ProductManagement from "./pages/ProductManagement/index.tsx";
 import Orders from "./pages/Orders/index.tsx";
 import DetailOrder from "./pages/DetailOrder/index.tsx";

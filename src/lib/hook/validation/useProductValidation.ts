@@ -30,7 +30,7 @@ const TestFormSchema = yup.object({
   nama_produk: yup.string().required("Nama produk tidak boleh kosong"),
   url: yup.string().required("URL tidak boleh kosong"),
   kategori: yup.string().required("Kategori produk harus terisi"),
-  min_pembelian: yup.number().required("Masukan minimal pembelian").min(1),
+  min_pembelian: yup.number().required("Masukan minimal pembelian").min(5),
   stok_produk: yup.number().required("Masukan stok produk minimal 1.").min(1),
   berat_produk: yup.number().required("Masukan berat produk."),
 });

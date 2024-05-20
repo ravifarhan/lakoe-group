@@ -1,15 +1,13 @@
-import Informasi from "../features/FormNewProduct/component/informasi";
+import Informasi from "../../features/FormNewProduct/component/informasi";
 import { Box, Button, Container, FormLabel, Typography } from "@mui/material";
 import { AddCircleOutline as AddCircleOutlineIcon } from "@mui/icons-material";
-// import NestedList from "../features/FormNewProduct/component/NestedList";
-
-import DetailProduct from "../features/FormNewProduct/component/detailProduct";
-import HargaPengelolaan from "../features/FormNewProduct/component/hargaPengelolaan";
-import Pengiriman from "../features/FormNewProduct/component/pengiriman";
+import DetailProduct from "../../features/FormNewProduct/component/detailProduct";
+import HargaPengelolaan from "../../features/FormNewProduct/component/hargaPengelolaan";
+import Pengiriman from "../../features/FormNewProduct/component/pengiriman";
 import { SubmitErrorHandler, SubmitHandler } from "react-hook-form";
 import useProductValidation, {
   ITestForm,
-} from "../lib/hook/validation/useProductValidation";
+} from "../../lib/hook/validation/useProductValidation";
 
 const FormNewProduct = () => {
   const { reset, handleSubmit } = useProductValidation();
@@ -31,7 +29,6 @@ const FormNewProduct = () => {
     >
       <Informasi />
       <DetailProduct />
-
       <Box sx={{ mt: 2, p: 2 }} borderRadius={"8px"} bgcolor={"#ffffff"}>
         <Typography variant="h6" color={"black"} gutterBottom>
           Varian Produk
@@ -48,10 +45,6 @@ const FormNewProduct = () => {
             color: "black",
             borderColor: "black",
             backgroundColor: "white",
-
-            // "&:hover": {
-            //   borderColor: "black",
-            // },
           }}
         >
           <AddCircleOutlineIcon
