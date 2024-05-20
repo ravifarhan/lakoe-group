@@ -3,6 +3,4 @@ interface IUser {
   name: string;
 }
 
-interface INewProduct {
-  image: string;
-}
+i;

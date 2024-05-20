@@ -7,6 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 import { FormEvent, useState } from "react";
+import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
+import useProductValidation, {
+  ITestForm,
+} from "../../../lib/hook/validation/useProductValidation";
+import NestedList from "./kategori";
 
 const Pengiriman = () => {
   const [beratProduct, setBeratProduct] = useState("");
@@ -26,6 +31,15 @@ const Pengiriman = () => {
     setTinggiProduct("");
   };
 
+  const submitHandler: SubmitHandler<ITestForm> = (data) => {
+    alert(JSON.stringify(data, null, 2));
+    reset();
+  };
+
+  const handleSubmitError: SubmitErrorHandler<ITestForm> = (data) => {
+    alert("error" + JSON.stringify(data, null, 2));
+  };
+
   return (
     <Box
       sx={{ mt: 2, p: 2 }}
@@ -37,16 +51,22 @@ const Pengiriman = () => {
         Berat & Pengiriman
       </Typography>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(submitHandler, handleSubmitError)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FormLabel component="legend">
               Berat Produk <span style={{ color: "red" }}>*</span>
             </FormLabel>
+            <Controller
+              control={control}
+              name="berat_produk"
+              render={({ field, fieldState }) => (
             <TextField
               fullWidth
-              type="number"
+              type="berat_produk"
               variant="outlined"
+              placeholder="Nama Produk"
+
               style={{
                 backgroundColor: "white",
                 borderRadius: "5px",
@@ -58,8 +78,15 @@ const Pengiriman = () => {
                   <InputAdornment position="end">Gram</InputAdornment>
                 ),
               }}
+              {...field}
+              error={!!fieldState.error?.message}
+              helperText={fieldState.error?.message}
+              // value={productUrl}
+              // onChange={(e) => setProductUrl(e.target.value)}
             />
-          </Grid>
+          )}
+        />
+      </Grid>
           <FormLabel
             component="legend"
             style={{

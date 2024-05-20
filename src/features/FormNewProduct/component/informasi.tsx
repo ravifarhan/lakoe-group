@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   TextField,
   Grid,
-  MenuItem,
   InputAdornment,
   Typography,
   FormLabel,
@@ -12,6 +11,7 @@ import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
 import useProductValidation, {
   ITestForm,
 } from "../../../lib/hook/validation/useProductValidation";
+import NestedList from "./kategori";
 
 const Informasi = () => {
   // const [productName, setProductName] = useState("");
@@ -88,7 +88,9 @@ const Informasi = () => {
             <FormLabel component="legend">
               Kategori<span style={{ color: "red" }}>*</span>
             </FormLabel>
-            <Controller
+            <NestedList />
+
+            {/* <Controller
               control={control}
               name="kategori"
               render={({ field, fieldState }) => (
@@ -104,8 +106,8 @@ const Informasi = () => {
                     backgroundColor: "white",
                     borderRadius: "5px",
                   }}
-                  // value={productCategory}
-                  // onChange={(e) => setProductCategory(e.target.value)}
+                  value={productCategory}
+                  onChange={(e) => setProductCategory(e.target.value)}
                 >
                   <MenuItem value="">Pilih Kategori</MenuItem>
                   <MenuItem value="Electronics">Electronics</MenuItem>
@@ -114,7 +116,7 @@ const Informasi = () => {
                   <MenuItem value="Home & Kitchen">Home & Kitchen</MenuItem>
                 </TextField>
               )}
-            />
+            /> */}
           </Grid>
         </Grid>
       </form>
