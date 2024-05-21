@@ -8,6 +8,11 @@ export const currentYear = [
   38000,
 ];
 
+export const dataChart = [
+  { data: [500, 480, 673, 423, 213, 754, 832, 482, 389, 493, 124, 543], label: "Current Year", color: "#ac92fd" },
+  { data: [400, 842, 423, 245, 675, 753, 953, 850, 525, 963, 253], label: "Last Year", color: "#fa2833" },
+]
+
 export const xLabels = [
   "January",
   "February",
