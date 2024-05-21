@@ -6,15 +6,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Controller, SubmitErrorHandler, SubmitHandler } from "react-hook-form";
 import useProductValidation, {
   ITestForm,
 } from "../../../lib/hook/validation/useProductValidation";
-import NestedList from "./kategori";
 
 const Pengiriman = () => {
-  const [beratProduct, setBeratProduct] = useState("");
   const [panjangProduct, setPanjangProduct] = useState("");
   const [lebarProduct, setLebarProduct] = useState("");
   const [tinggiProduct, setTinggiProduct] = useState("");

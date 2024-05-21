@@ -3,14 +3,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Input, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import {
   useForm,
   Controller,
   SubmitHandler,
   SubmitErrorHandler,
 } from "react-hook-form";
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -35,8 +34,8 @@ export default function ModalStock() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [stok, setStok] = React.useState("");
-  console.log(stok);
+  // const [stok, setStok] = React.useState("");
+  // console.log(stok);
 
   const StockSchema = yup.object({
     stock: yup.number().required(),
@@ -51,7 +50,7 @@ export default function ModalStock() {
     resolver: yupResolver(StockSchema),
   });
 
-  const handleOnSubmit: SubmitHandler<IModalStock> = (data) => {
+  const handleOnSubmit: SubmitHandler<IModalStock> = () => {
     alert("Berhasil Mengubah Stok");
     reset();
   };
