@@ -7,11 +7,13 @@ import {
   SubmitErrorHandler,
   SubmitHandler,
 } from "react-hook-form";
-import { login } from "../../lib/API/call/auth";
+import { login as loginAPI } from "../../lib/API/call/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { styled } from "@mui/material/styles";
 import { orange } from "@mui/material/colors";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/slice/auth";
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
   color: theme.palette.getContrastText(orange[500]),
@@ -43,12 +45,13 @@ const Login: React.FC = () => {
   });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const handleOnSubmit: SubmitHandler<ILogin> = async (data) => {
     try {
-      const res = await login(data);
+      const res = await loginAPI(data);
       const token = res.data.access_token;
-      localStorage.setItem("token", token);
+      dispatch(login(token))
       navigate("/");
     } catch (error) {
       console.log(error);

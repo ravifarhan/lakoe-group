@@ -7,8 +7,16 @@ import {
   ShoppingBagOutlined,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../store/slice/auth";
 
 const Sidebar = () => {
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+  }
+
   return (
     <Box
       display={"flex"}
@@ -82,23 +90,12 @@ const Sidebar = () => {
           </Link>
         </Box>
       </Box>
-
       <Box display={"flex"} flexDirection={"column"} padding={4} gap={3}>
-        <Box sx={{ display: "flex" }}>
-          <Link
-            to="#"
-            style={{
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
-            <AccountCircleOutlined sx={{ color: "black" }} />
-            <Typography variant="body1" color={"black"}>
-              Profile
-            </Typography>
-          </Link>
+        <Box onClick={handleLogout} sx={{ display: "flex", gap: "8px", cursor: "pointer", width: "fit-content"}}>
+          <AccountCircleOutlined sx={{ color: "black" }} />
+          <Typography variant="body1" color={"black"}>
+            Profile
+          </Typography>
         </Box>
       </Box>
     </Box>

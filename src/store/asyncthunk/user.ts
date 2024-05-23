@@ -1,18 +1,14 @@
-// interface MyData {
-//   // ...
-// }
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { getCurrentUser } from "../../lib/API/call/auth";
 
-// const fetchUserById = createAsyncThunk(
-//   'users/fetchById',
-//   // Declare the type your function argument here:
-//   async (userId: number) => {
-//     const response = await fetch(`https://reqres.in/api/users/${userId}`)
-//     // Inferred return type: Promise<MyData>
-//     return (await response.json()) as MyData
-//   },
-// )
-
-// // the parameter of `fetchUserById` is automatically inferred to `number` here
-// // and dispatching the resulting thunkAction will return a Promise of a correctly
-// // typed "fulfilled" or "rejected" action.
-// const lastReturnedAction = await store.dispatch(fetchUserById(3))
+export const fetchCurrentUser = createAsyncThunk(
+  "user/fetchCurrentUser",
+  async (_, thunkApi) => {
+    try {
+      const res = await getCurrentUser();
+      return res.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);
