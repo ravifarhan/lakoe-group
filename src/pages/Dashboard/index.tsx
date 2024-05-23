@@ -25,8 +25,6 @@ export default function Dashboard() {
     dispatch(fetchCurrentUser())
   }, []);
 
-
-
   return (
     <>
       <Box margin={"20px"} borderRadius={"10px"} boxShadow={2} bgcolor={"white"}>
